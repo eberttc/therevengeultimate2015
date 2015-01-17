@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Paciente.html";    
+}
+
+			<div id="about">
+				<div class="about-inner">
+					<h4 class="page-header">Open-source admin theme for you</h4>
+					<p>DevOOPS team</p>
+					<p>Homepage - <a href="http://devoops.me" target="_blank">http://devoops.me</a></p>
+					<p>Email - <a href="mailto:devoopsme@gmail.com">devoopsme@gmail.com</a></p>
+					<p>Twitter - <a href="http://twitter.com/devoopsme" target="_blank">http://twitter.com/devoopsme</a></p>
+					<p>Donate - BTC 123Ci1ZFK5V7gyLsyVU36yPNWSB5TDqKn3</p>
+				</div>
+			</div>	
+			<div id="ajax-content">
+				<div class="row">
+	<div id="breadcrumb" class="col-xs-12">
+		<a href="#" class="show-sidebar">
+			<i class="fa fa-bars"></i>
+		</a>
+		<ol class="breadcrumb pull-left">
+			<li><a href="#">Dashboard</a></li>
+			<li><a href="#">Tables</a></li>
+			<li><a href="#">Data Tables</a></li>
+		</ol>
+		<div id="social" class="pull-right">
+			<a href="#"><i class="fa fa-google-plus"></i></a>
+			<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-youtube"></i></a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="fa fa-usd"></i>
+					<span>Listado de Pacientes</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding">
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Name</th>
+							<th>Net Worth</th>
+							<th>Age</th>
+							<th>Source</th>
+							<th>Country of Citizenship</th>
+							<th>Accion</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- Start: list_row -->
+						<tr>
+							<td>1</td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/carlos-slim-helu_50x50.jpg" alt="">Carlos Slim Helu & family</td>
+							<td>$73 B</td>
+							<td>74</td>
+							<td>telecom</td>
+							<td>Mexico</td>
+							<td><div class="row"><div class="col-lg-6"><a>Editar</a></div><div class="col-lg-6"><a>Eliminar</a></div></div></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/bill-gates_50x50.jpg" alt="">Bill Gates</td>
+							<td>$67 B</td>
+							<td>58</td>
+							<td>Microsoft</td>
+							<td>United States</td>
+							<td><div class="row"><div class="col-lg-6"><a>Editar</a></div><div class="col-lg-6"><a>Eliminar</a></div></div></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/amancio-ortega_50x50.jpg" alt="">Amancio Ortega</td>
+							<td>$57 B</td>
+							<td>77</td>
+							<td>Zara</td>
+							<td>Spain</td>
+							<td><div class="row"><div class="col-lg-6"><a>Editar</a></div><div class="col-lg-6"><a>Eliminar</a></div></div></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/warren-buffett_50x50.jpg" alt="">Warren Buffett</td>
+							<td>$53.5 B</td>
+							<td>83</td>
+							<td>Berkshire Hathaway</td>
+							<td>United States</td>
+							<td><div class="row"><div class="col-lg-6"><a>Editar</a></div><div class="col-lg-6"><a>Eliminar</a></div></div></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/larry-ellison_50x50.jpg" alt="">Larry Ellison</td>
+							<td>$43 B</td>
+							<td>69</td>
+							<td>Oracle</td>
+							<td>United States</td>
+							<td><div class="row"><div class="col-lg-6"><a>Editar</a></div><div class="col-lg-6"><a>Eliminar</a></div></div></td>
+						</tr>
+						
+						</tr>						
+					<!-- End: list_row -->
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Rate</th>
+							<th>Distro</th>
+							<th>Votes</th>
+							<th>Homepage</th>
+							<th>Version</th>
+							<th>Icon</th>
+							<th>Icon</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="row">		
+		<div class="col-sm-12" >
+			<div class="bs-example">				
+				<button class="btn btn-primary" type="button" style="float:right"   id="btnAgregar">Agregar</button>				
+			</div>
+		</div>
+	</div>
+
+
+<script type="text/javascript">    
+    $('#btnAgregar').on('click', function () {
+        window.location.href = '@Url.Action("registrar", "paciente")';
+    });
+</script>

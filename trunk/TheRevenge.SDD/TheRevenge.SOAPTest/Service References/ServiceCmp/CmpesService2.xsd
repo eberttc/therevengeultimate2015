@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:13558/CmpesService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" />
+  <xs:element name="crearCmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strtxDescripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strtxDoc_Identidad" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearCmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="crearCmpResult" nillable="true" type="q1:Cmp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultarCmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="intIdCMP" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultarCmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="consultarCmpResult" nillable="true" type="q2:Cmp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarCmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="intIdCMP" type="xs:int" />
+        <xs:element minOccurs="0" name="strtxDescripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strtxDoc_Identidad" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarCmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="actualizarCmpResult" nillable="true" type="q3:Cmp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarCmp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="intIdCMP" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarCmpResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarCmp">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarCmpResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="listarCmpResult" nillable="true" type="q4:ArrayOfCmp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -60,6 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CmpesService.svc" />
+    <Content Include="Library\Iesi.Collections.dll" />
+    <Content Include="Library\NHibernate.dll" />
+    <Content Include="PacientesService.svc" />
+    <Content Include="TiposDocService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -73,7 +77,15 @@
       <DependentUpon>CmpesService.svc</DependentUpon>
     </Compile>
     <Compile Include="ICmpesService.cs" />
+    <Compile Include="IPacientesService.cs" />
+    <Compile Include="ITiposDocService.cs" />
+    <Compile Include="PacientesService.svc.cs">
+      <DependentUpon>PacientesService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiposDocService.svc.cs">
+      <DependentUpon>TiposDocService.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,11 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Iesi.Collections">
-      <HintPath>..\Library\Iesi.Collections.dll</HintPath>
+      <HintPath>..\TheRevenge.SOAP\Library\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NHibernate">
-      <HintPath>..\Library\NHibernate.dll</HintPath>
+      <HintPath>..\TheRevenge.SOAP\Library\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

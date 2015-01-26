@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PacientesService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:13558/PacientesService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:13558/PacientesService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:13558/PacientesService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPacientesService_crearPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_crearPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_consultarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:consultarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_consultarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:consultarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_actualizarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_actualizarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_eliminarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_eliminarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_listarPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IPacientesService_listarPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarPacienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPacientesService">
+    <wsdl:operation name="crearPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPacientesService/crearPaciente" message="tns:IPacientesService_crearPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPacientesService/crearPacienteResponse" message="tns:IPacientesService_crearPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPacientesService/consultarPaciente" message="tns:IPacientesService_consultarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPacientesService/consultarPacienteResponse" message="tns:IPacientesService_consultarPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPacientesService/actualizarPaciente" message="tns:IPacientesService_actualizarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPacientesService/actualizarPacienteResponse" message="tns:IPacientesService_actualizarPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPacientesService/eliminarPaciente" message="tns:IPacientesService_eliminarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPacientesService/eliminarPacienteResponse" message="tns:IPacientesService_eliminarPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPacientesService/listarPaciente" message="tns:IPacientesService_listarPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPacientesService/listarPacienteResponse" message="tns:IPacientesService_listarPaciente_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPacientesService" type="tns:IPacientesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="crearPaciente">
+      <soap:operation soapAction="http://tempuri.org/IPacientesService/crearPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IPacientesService/consultarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IPacientesService/actualizarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IPacientesService/eliminarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarPaciente">
+      <soap:operation soapAction="http://tempuri.org/IPacientesService/listarPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PacientesService">
+    <wsdl:port name="BasicHttpBinding_IPacientesService" binding="tns:BasicHttpBinding_IPacientesService">
+      <soap:address location="http://localhost:13558/PacientesService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

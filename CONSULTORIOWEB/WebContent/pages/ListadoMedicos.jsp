@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Listado de Medicos</title>
   <!-- Bootstrap core CSS -->
   
  
@@ -26,19 +26,38 @@
 
 $(document).ready(function() {
 
+		
 } );
+
+
+
 
 </script>
 	
   <body>
   
   <jsp:include page="/pages/header.jsp" />
-  <form id="frmMorosos" action="${pageContext.request.contextPath}/CuotasServlet">
+  <form id="frmMorosos" action="${pageContext.request.contextPath}/pages/RegistrarMedico.jsp">
+  
+   
+			  
   <input type="hidden" id="hidopcion"  name="opcion">  
     <div class="jumbotron">
       <div class="container">
-        <h3>Mis Cuotas Vencidas</h3>
-
+        <h3>Listado de Medicos</h3>
+			  <div class="form-group">
+				           <c:if test="${requestScope.mensaje!='1'}">
+					          <div class="row">
+					            <div class="col-md-2" align="center">
+					              <input class="btn btn-primary" type="submit" value="Nuevo">			              			             
+					            </div>
+					            <div class="col-md-10" align="center">
+					             			              			             
+					            </div>
+					            
+					          </div>	
+				          </c:if>	
+			   </div>
       </div>
     </div>
     <div class="container">
@@ -47,27 +66,26 @@ $(document).ready(function() {
       <table class="table table-bordered table-hover" id="jqueryDataTable">
         <thead>
           <tr class="success">
-            <th>Periodo Cuota</th>
-            <th>Nombre Residente</th>
-            <th>Dni Residente</th>
-            <th>Importe a pagar</th>
-            <th>Fecha Vencimiento</th>
-            <th>Id Vivienda</th>
-            
-          
+            <th>id</th>
+            <th>Nombre Medico</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Cmp</th>
+            <th>opciones</th>
+                      
           </tr>
         </thead>
         <tbody>
-          <c:forEach var="bean" items="${requestScope.lista}" varStatus="i">
+         
+          
           <tr>
-          	<td>${bean.c_Period}</td>
-          	<td>${bean.o_Vivienda.residente.nombreResidente}</td>
-          	<td>${bean.o_Vivienda.residente.numeroDocumento}</td>
-          	<td>${bean.n_ImpPag}</td>
-          	<td>${bean.d_FecVen}</td>
-          	<td>${bean.o_Vivienda.n_IdVivi}</td>                    	          	          	          		           	       
+          	<td>1</td>
+          	<td>Miguel</td>
+          	<td>Merino</td>
+          	<td>Merino}</td>
+          	<td>12345678</td>
+          	<td><a href="<%=request.getContextPath()%>/pages/RegistrarMedico.jsp">Editar</a></td>                    	          	          	          		           	       
           </tr>
-          </c:forEach>
         </tbody>
       </table>  
       <footer></footer>

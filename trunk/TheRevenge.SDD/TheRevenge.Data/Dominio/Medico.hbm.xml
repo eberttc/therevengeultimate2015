@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="TheRevenge.Data"
+                   namespace="TheRevenge.Data.Dominio"
+                   default-lazy="false">
+	<class name="Medico" table="MEDICO">
+		<id name="IdMedico" column="ID_MEDICO">
+			<!--generator class="increment"></generator-->
+			<generator class="identity"></generator>
+		</id>
+		<property name="Nombre" column="NOMBRES"></property>
+		<property name="Ape_Paterno" column="APE_PATERNO"></property>
+		<property name="Ape_Materno" column="APE_MATERNO"></property>
+		<property name="Sexo" column="SEXO"></property>
+		<property name="Nro_Documento" column="NRO_DOCUMENTO"></property>
+		<property name="Correo" column="CORREO"></property>
+		<property name="Direccion" column="DIRECCION"></property>
+		<property name="Telefono" column="TELEFONO"></property>
+		<property name="Password" column="PASSWORD"></property>
+		<many-to-one name="TipoDocumento" column="TIPO_DOCUMENTO" />
+		<many-to-one name="Cmp" column="CMP" />
+		<many-to-one name="Especialidad" column="ESPECIALIDAD" />
+	</class>
+</hibernate-mapping>

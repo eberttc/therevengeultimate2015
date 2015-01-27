@@ -42,17 +42,18 @@
 		    }
 		    
 		    
-		    function cancelar(){
-		        
-		    	var f=document.forms[0];
-		    	        		
+		    
+	        function cancelar(){
+	            
+	        	var f=document.forms[0];
+	        	        		
 					var url="<%=request.getContextPath()%>/pages/principal.jsp";							
 					f.action=url;
 					f.submit();
-		
-		       	
-		
-		    }
+
+	           	
+
+	        }
 		    
     
     </script>
@@ -77,7 +78,7 @@
     </div>
     <div class="container">
       <!-- Example row of columns -->
-       
+       <form>
           	 <div class="well">	 
           		 <div class="form-group">
           		 		<div class="row">
@@ -166,6 +167,7 @@
 			     </div>
 		 </div>
       <hr>
+      </form>
       <footer>
         <p>&copy; Developers 2013</p>
         <nav>

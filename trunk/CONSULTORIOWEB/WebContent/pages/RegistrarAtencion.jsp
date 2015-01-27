@@ -43,7 +43,7 @@
             
         	var f=document.forms[0];
         	        		
-				var url="<%=request.getContextPath()%>/pages/ListadoMedicos.jsp";							
+				var url="<%=request.getContextPath()%>/pages/principal.jsp";							
 				f.action=url;
 				f.submit();
 

@@ -1,6 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81F67F4F-EEA0-485F-A057-EE4228E370A4}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TheRevenge.SDD.vsmdi = TheRevenge.SDD.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.SOAP", "TheRevenge.SOAP\TheRevenge.SOAP.csproj", "{3EF065D3-68C9-4F98-B4A2-AE9F38812231}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.Data", "TheRevenge.Data\TheRevenge.Data.csproj", "{A18A95FA-1E37-4DBF-B3B6-FA2ED2AB0C71}"
@@ -8,13 +15,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.SOAPTest", "TheRevenge.SOAPTest\TheRevenge.SOAPTest.csproj", "{BB539ECD-D595-4E6C-A460-8240624BF524}"
 	ProjectSection(ProjectDependencies) = postProject
 		{3EF065D3-68C9-4F98-B4A2-AE9F38812231} = {3EF065D3-68C9-4F98-B4A2-AE9F38812231}
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81F67F4F-EEA0-485F-A057-EE4228E370A4}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		TheRevenge.SDD.vsmdi = TheRevenge.SDD.vsmdi
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
 Global

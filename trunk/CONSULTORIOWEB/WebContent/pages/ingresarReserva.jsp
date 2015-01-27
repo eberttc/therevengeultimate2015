@@ -20,11 +20,50 @@
         padding-bottom: 20px;
       }
     </style>
-    <script language="javascript" src="<%=request.getContextPath()%>/js/ajax.js"></script>
-    <script type="text/javascript">
-     
+    <script language="javascript" >
    
+     
+		
+			window.name="medicos";
+		    function grabar(){
+		    
+		    	    bootbox.alert("Registro de reserva exitoso,su numero de cita es 989999");
+		    		  	<%-- 	
+		    		  		 var f=document.forms[0];        	        	
+		    					var url="<%=request.getContextPath()%>/pages/ListadoMedicos.jsp";							
+		    					f.action=url;
+		    					f.submit();
+		    	
+		    		 --%>
+		    	   
+		
+		       	
+		
+		    }
+		    
+		    
+		    function cancelar(){
+		        
+		    	var f=document.forms[0];
+		    	        		
+					var url="<%=request.getContextPath()%>/pages/principal.jsp";							
+					f.action=url;
+					f.submit();
+		
+		       	
+		
+		    }
+		    
+    
     </script>
+    	
+
+    	
+
+       
+      
+      
+         
   </head>
   
   <body>
@@ -39,7 +78,7 @@
     <div class="container">
       <!-- Example row of columns -->
        
-          		 
+          	 <div class="well">	 
           		 <div class="form-group">
           		 		<div class="row">
 			              <div class="col-sm-2">
@@ -125,6 +164,7 @@
 			          </div>
 			              
 			     </div>
+		 </div>
       <hr>
       <footer>
         <p>&copy; Developers 2013</p>

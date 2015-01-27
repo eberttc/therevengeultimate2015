@@ -36,7 +36,7 @@
 	          <li class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Citas <b class="caret"></b></a>
 	            <ul class="dropdown-menu">	             	            	             
-	              <li><a href="#">Listado de Citas</a></li>	                        	             	             
+	              <li><a href="<%=request.getContextPath()%>/pages/ListadoCitas.jsp" target="_top">Listado de Citas</a></li>	                        	             	             
 	            </ul>
 	          </li>
 	          

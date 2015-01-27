@@ -45,7 +45,12 @@ $(document).ready(function() {
     <div class="jumbotron">
       <div class="container">
         <h3>Listado de Medicos</h3>
-			  <div class="form-group">
+			
+      </div>
+    </div>
+    <div class="container">
+        
+          <div class="form-group">
 				           <c:if test="${requestScope.mensaje!='1'}">
 					          <div class="row">
 					            <div class="col-md-2" align="center">
@@ -57,11 +62,7 @@ $(document).ready(function() {
 					            
 					          </div>	
 				          </c:if>	
-			   </div>
-      </div>
-    </div>
-    <div class="container">
-         
+			   </div> 
       <br>
       <table class="table table-bordered table-hover" id="jqueryDataTable">
         <thead>

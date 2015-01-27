@@ -54,6 +54,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceMedico\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServicePaciente\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\TheRevenge.Data.Dominio.Medico.datasource" />
     <None Include="Service References\ServiceCmp\CmpesService.wsdl" />
     <None Include="Service References\ServiceCmp\CmpesService.xsd">
       <SubType>Designer</SubType>
@@ -85,6 +91,16 @@
     </None>
     <None Include="Service References\ServiceCmp\TheRevenge.SOAPTest.ServiceCmp.Cmp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceMedico\MedicosService.wsdl" />
+    <None Include="Service References\ServiceMedico\MedicosService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceMedico\MedicosService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceMedico\MedicosService2.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicePaciente\PacientesService.wsdl" />
     <None Include="Service References\ServicePaciente\PacientesService.xsd">
@@ -115,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceCmp\" />
+    <WCFMetadataStorage Include="Service References\ServiceMedico\" />
     <WCFMetadataStorage Include="Service References\ServicePaciente\" />
     <WCFMetadataStorage Include="Service References\ServiceTipoDoc\" />
   </ItemGroup>
@@ -168,6 +185,18 @@
       <Project>{A18A95FA-1E37-4DBF-B3B6-FA2ED2AB0C71}</Project>
       <Name>TheRevenge.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceMedico\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceMedico\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceMedico\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

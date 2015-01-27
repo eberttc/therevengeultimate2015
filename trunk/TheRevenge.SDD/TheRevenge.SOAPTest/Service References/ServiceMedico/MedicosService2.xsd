@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:13558/MedicosService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" />
+  <xs:element name="crearMedico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ape_paterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ape_materno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo_Documento" type="xs:int" />
+        <xs:element minOccurs="0" name="nro_documento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cmp" type="xs:int" />
+        <xs:element minOccurs="0" name="especialidad" type="xs:int" />
+        <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crearMedicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="crearMedicoResult" nillable="true" type="q1:Medico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultarMedico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idmedico" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="consultarMedicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="consultarMedicoResult" nillable="true" type="q2:Medico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarMedico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idmedico" type="xs:int" />
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ape_paterno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ape_materno" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tipo_Documento" type="xs:int" />
+        <xs:element minOccurs="0" name="nro_documento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cmp" type="xs:int" />
+        <xs:element minOccurs="0" name="especialidad" type="xs:int" />
+        <xs:element minOccurs="0" name="direccion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarMedicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="actualizarMedicoResult" nillable="true" type="q3:Medico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarMedico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idmedico" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarMedicoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMedico">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMedicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" minOccurs="0" name="ListarMedicoResult" nillable="true" type="q4:ArrayOfMedico" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ecd2f4c5-dc4c-464f-a255-ffc4a85845b0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:13558/EstadoCitasService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EstadoCitasService.xsd" MetadataType="Schema" ID="dd3fdf73-ff41-4a4a-bd69-8effdeb00094" SourceId="1" SourceUrl="http://localhost:13558/EstadoCitasService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EstadoCitasService.wsdl" MetadataType="Wsdl" ID="a86ac230-5af1-4bb2-b4bf-d363c8ba0565" SourceId="1" SourceUrl="http://localhost:13558/EstadoCitasService.svc?wsdl" />
+    <MetadataFile FileName="EstadoCitasService1.xsd" MetadataType="Schema" ID="39f5c9c8-c975-4417-abe2-14040ff69ae3" SourceId="1" SourceUrl="http://localhost:13558/EstadoCitasService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EstadoCitasService2.xsd" MetadataType="Schema" ID="6f496394-4331-4177-8d63-d38906358970" SourceId="1" SourceUrl="http://localhost:13558/EstadoCitasService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

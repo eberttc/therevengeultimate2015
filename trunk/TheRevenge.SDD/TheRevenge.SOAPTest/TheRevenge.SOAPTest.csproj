@@ -54,6 +54,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceEstadoCita\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceHorario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,6 +83,7 @@
     <Compile Include="TestPaciente.cs" />
     <Compile Include="TestTipoDocumento.cs" />
     <Compile Include="TestHorario.cs" />
+    <Compile Include="TestEstadoCita.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -96,6 +102,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceCmp\TheRevenge.SOAPTest.ServiceCmp.Cmp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceEstadoCita\EstadoCitasService.wsdl" />
+    <None Include="Service References\ServiceEstadoCita\EstadoCitasService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceEstadoCita\EstadoCitasService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceEstadoCita\EstadoCitasService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceEstadoCita\TheRevenge.SOAPTest.ServiceEstadoCita.EstadoCita.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceHorario\HorariosService.wsdl" />
@@ -150,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceCmp\" />
+    <WCFMetadataStorage Include="Service References\ServiceEstadoCita\" />
     <WCFMetadataStorage Include="Service References\ServiceHorario\" />
     <WCFMetadataStorage Include="Service References\ServiceMedico\" />
     <WCFMetadataStorage Include="Service References\ServicePaciente\" />
@@ -226,6 +246,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceHorario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceEstadoCita\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceEstadoCita\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceEstadoCita\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

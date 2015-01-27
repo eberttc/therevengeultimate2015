@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Cmp.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
+    <Compile Include="Dominio\EstadoCita.cs" />
     <Compile Include="Dominio\Horario.cs" />
     <Compile Include="Dominio\Medico.cs" />
     <Compile Include="Dominio\Paciente.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Persistencia\CmpDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\EspecialidadDAO.cs" />
+    <Compile Include="Persistencia\EstadoCita.cs" />
     <Compile Include="Persistencia\HorarioDAO.cs" />
     <Compile Include="Persistencia\MedicoDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
@@ -80,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dominio\Especialidad.hbm.xml" />
+    <Content Include="Dominio\EstadoCita.hbm.xml" />
     <Content Include="Dominio\Horario.hbm.xml" />
     <Content Include="Dominio\Medico.hbm.xml" />
   </ItemGroup>

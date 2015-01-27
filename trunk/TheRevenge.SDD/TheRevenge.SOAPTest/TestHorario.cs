@@ -12,7 +12,7 @@ namespace TheRevenge.SOAPTest
     public class TestHorario
     {
         [TestMethod]
-        public void TestListarHorios()
+        public void TestListarHorarios()
         {
             ServiceHorario.HorariosServiceClient proxy = new ServiceHorario.HorariosServiceClient();
             //List<Horario> resultado = proxy.ListarHorario();

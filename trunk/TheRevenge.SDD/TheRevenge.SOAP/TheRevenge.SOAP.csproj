@@ -20,6 +20,11 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +72,7 @@
   <ItemGroup>
     <Content Include="CmpesService.svc" />
     <Content Include="EspecialidadesService.svc" />
+    <Content Include="HorariosService.svc" />
     <Content Include="Library\Iesi.Collections.dll" />
     <Content Include="Library\NHibernate.dll" />
     <Content Include="MedicosService.svc" />
@@ -87,8 +93,12 @@
     <Compile Include="EspecialidadesService.svc.cs">
       <DependentUpon>EspecialidadesService.svc</DependentUpon>
     </Compile>
+    <Compile Include="HorariosService.svc.cs">
+      <DependentUpon>HorariosService.svc</DependentUpon>
+    </Compile>
     <Compile Include="ICmpesService.cs" />
     <Compile Include="IEspecialidadesService.cs" />
+    <Compile Include="IHorariosService.cs" />
     <Compile Include="IMedicosService.cs" />
     <Compile Include="IPacientesService.cs" />
     <Compile Include="ITiposDocService.cs" />
@@ -134,7 +144,6 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

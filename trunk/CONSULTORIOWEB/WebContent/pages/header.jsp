@@ -50,7 +50,7 @@
 	          <li class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reservas <b class="caret"></b></a>
 	            <ul class="dropdown-menu">	             
-	              <li><a href="pages/ingresarReserva.jsp?idResidente=${sessionScope.USUARIO_ACTUAL.idUsuario}">Citas</a></li>	              
+	              <li><a href="<%=request.getContextPath()%>/pages/ingresarReserva.jsp">Citas</a></li>	              
 	                           	             	             
 	            </ul>
 	          </li>

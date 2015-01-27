@@ -26,6 +26,13 @@ namespace TheRevenge.SOAP
         public ICollection<Tipo_Documento> listarTipo_Documento()
         {
             ICollection<Tipo_Documento> listarTipo_Documento = Tipo_DocumentoDAO.ListarTodos();
+            if (listarTipo_Documento.Count() == 0)
+                throw new FaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 6,
+                        MensajeError = "La lista no devolvió datos."
+                    }, new FaultReason("SOAP_TD_EmptyListFail"));
             return listarTipo_Documento;
         }
     }

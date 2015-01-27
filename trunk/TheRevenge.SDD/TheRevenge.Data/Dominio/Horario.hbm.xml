@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="TheRevenge.Data"
+                   namespace="TheRevenge.Data.Dominio"
+                   default-lazy="false">
+  <class name="Horario" table="HORARIO">
+    <id name="Id_Horario" column="ID_HORARIO">
+      <!--generator class="increment"></generator-->
+      <generator class="identity"></generator>
+    </id>
+    <property name="Val_Hor" column="VAL_HOR"></property>
+  </class>
+</hibernate-mapping>

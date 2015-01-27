@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dominio\Especialidad.hbm.xml" />
+    <Content Include="Dominio\Horario.hbm.xml" />
     <Content Include="Dominio\Medico.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

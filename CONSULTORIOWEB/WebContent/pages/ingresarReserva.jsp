@@ -1,7 +1,7 @@
-<%@page import="com.upc.condominio.negocio.GestionEspacioComun,com.upc.condominio.negocio.GestionReserva,
-				com.upc.condominio.modelo.EspacioComun,com.upc.condominio.modelo.Horario,com.upc.condominio.exceptions.DAOExcepcion,java.util.*" %>
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <html>
   
   <head>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Reserva Espacio comun</title>    
+    <title>Reserva Cita de Atencion</title>    
   	<meta name="viewport" content="width=device-width">
    	<link href="<%=request.getContextPath()%>/css/bootstrap.css" rel="stylesheet" media="screen">
  	 <script src="<%=request.getContextPath()%>/js/jquery-1.10.2.js"></script> 	 
@@ -32,88 +32,99 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h3>RESERVA DE ESPACIOS COMUNES DEL CONDOMINIO</h3>
+        <h3>RESERVA DE ATENCION</h3>
         <p></p>
       </div>
     </div>
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-0">
-          <form method="post" Action="../ReservaServlet">
-            <div class="col-md-4" >Fecha:<input id="fc_fechaReserva" type="date"  class="form-control" name="fc_fechaReserva" placeholder="dd/mm/yyyy" required="required"
-            onchange="validarFechaMenorActual(this.value);"
-            onchange="listarHorarioDisponible('listarHorarios.jsp','&fecha='+this.value,'&ec='+document.getElementById('fc_espacioComun').value,'div_resultado')">
-            </div>
-            <div class="col-md-4">Espacio:
-              <select class="form-control" id="fc_espacioComun" name="fc_espacioComun" required="required"
-              onchange="listarHorarioDisponible('listarHorarios.jsp','&ec='+this.value,'&fecha='+document.getElementById('fc_fechaReserva').value,'div_resultado')">
-				<option></option>
-						<% 
-						  GestionEspacioComun negocio = new GestionEspacioComun();
-							try {
-								Collection<EspacioComun> listado = negocio.listarEspacios();
-								
-								for (EspacioComun m : listado) {%>
-									 <option value="<%=m.getIdespacio()%>"><%=m.getNombreEspacio()%></option>
-								<%} 
-							} catch (DAOExcepcion e) {
-						      out.print("Falló el Listado: "+e.getMessage());
-						    } 
-						 %>
-              </select>
-              <input type="hidden" id="idResidente" name="idResidente" value="${sessionScope.USUARIO_ACTUAL.idUsuario}">
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr>
-                  <th>N&ordm;</th>
-                  <th>HORARIOS DISPONIBLES</th>
-                </tr>
-              </thead>
-              <tbody id="div_resultado">
-                <tr >
-                  <td></td>
-                </tr>  
-              </tbody>
-            </table>
-            <div>
-            <%
-            String vt=null;
-            String vf=null;
-            
-            String aux = request.getParameter("aux");
-            if(aux != null && aux.equals("y")){%>
-            		  <p></p>
-			          <div class="alert alert-success">
-			            <button type="button" class="close" data-dismiss="alert">&times;</button>
-			            <b>En hora buena,</b> Su reserva se registró con éxito.
+       
+          		 
+          		 <div class="form-group">
+          		 		<div class="row">
+			              <div class="col-sm-2">
+			                <label class="form-label">Fecha</label>
+			              </div>
+			              <div class="col-sm-4">
+			            	 <input type="date" class="form-control input-sm" required name="txtfecha" min="" id="idfecha"  >
+			            
+			              </div>
+			              <div class="col-sm-6">
+			              		 <input class="btn btn-primary" type="button" onclick="grabar();" value="BUSCAR">			              			             					           
+			              </div>
+			             </div>
+			             
+			              <br>
+			              
+			             <div class="row">
+			             <div class="col-sm-2">
+			                <label class="form-label">Especialidad</label>
+			              </div>
+			              <div class="col-sm-4">
+			              	<select class="form-control input-sm"  name="cboSexo"  id="idSexo">
+			              			<option value="0">---Seleccione---</option>
+			              			<option value="1">CONSULTA OFTALMOLOGICA</option>
+			              			<option value="2">DEFECTOS REFRACTIVOS</option>	
+			              			<option value="3">CIRUGIAS</option>			              	
+			              	</select>
+			              </div>
+			              <div class="col-sm-2"></div>
+			              <div class="col-sm-4"> </div>
+			              
+			             </div>
+			              <br>
+			              
+			             <div class="row">
+			                <table class="table table-bordered table-hover" id="jqueryDataTable">
+					        <thead>
+					          <tr class="success">
+					            <th>Nombre Medico</th>
+					            <th>Opciones</th>  
+					          </tr>
+					        </thead>
+					        <tbody>
+					          <tr>
+					          	<td>Miguel</td>
+					          	<td><input type="radio" name="rbdOpcion"/></td>                    	          	          	          		           	       
+					          </tr> 
+					        </tbody>
+					      </table> 
+			             </div>
+			             
+			             <br/>
+			             
+			          <div class="row">
+			              <div class="col-sm-2">
+			                <label class="form-label">Horario</label>
+			              </div>
+			              <div class="col-sm-4">
+			            	<select class="form-control input-sm"  name="cboHorario"  id="idHorario">
+			              			
+			              			<option value="-1">No hay Horario disponible</option>
+			              				              	
+			              	</select>
+			            
+			              </div>
+			              <div class="col-sm-6">         			             					           
+			              </div>
+			             </div>
+			             
+			             <br/>
+			             
+			              <div class="form-group">
+				           <c:if test="${requestScope.mensaje!='1'}">
+					          <div class="row">
+					            <div class="col-md-6" align="center">
+					              <input class="btn btn-primary" type="button" onclick="grabar();" value="Reservar">			              			             
+					            </div>
+					            <div class="col-md-6" align="center">
+					              <input class="btn btn-primary" type="button" onclick="cancelar();" value="Cancelar">			              			             
+					            </div>
+					          </div>	
+				          </c:if>	
 			          </div>
-            	
-            <%}else if(aux != null && aux.equals("n")){%>
-			          <p></p>
-			          <div class="alert alert-danger">
-			            <button type="button" class="close" data-dismiss="alert">&times;</button>
-			            <b>ERROR!</b> Usted ha superado las posibles reservas del espacio seleccionado por día.
-			          </div>
-            		
-            	<%}%>
-           </div>
-           <p>
-            <div class="col-md-4">
-              <input type="submit" class="btn btn-default" value="ENVIAR" onclick="ver();">
-            </div>
-            
-          </form>
-        </div>
-        <div class="col-lg-4">
-        
-          <p></p>
-        </div>
-      </div>
+			              
+			     </div>
       <hr>
       <footer>
         <p>&copy; Developers 2013</p>

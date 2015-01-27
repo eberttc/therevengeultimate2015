@@ -25,7 +25,12 @@ namespace TheRevenge.SOAP
         }
         public Paciente crearPaciente(Paciente _paciente)
         {
-            ICollection<Paciente> listaPaciente = PacienteDAO.ListarPacienteFiltros(_paciente);
+            Paciente pacienteABuscar = new Paciente()
+            {
+                Nro_Documento = _paciente.Nro_Documento,
+                Correo = _paciente.Correo
+            };
+            ICollection<Paciente> listaPaciente = PacienteDAO.ListarPacienteFiltros(pacienteABuscar);
             if (listaPaciente.Count > 0)
             {
                 throw new FaultException<Observacion>(
@@ -35,6 +40,20 @@ namespace TheRevenge.SOAP
                         MensajeError = "El paciente a ingresar ya se encuentra registrado. Usar otro usuario."
                     }, new FaultReason("SOAP_InsertFail"));
             }
+            Paciente pacienteAComparar = new Paciente()
+            {
+                Nombres = _paciente.Nombres,
+                Ape_Paterno = _paciente.Ape_Paterno,
+                Ape_Materno = _paciente.Ape_Materno
+            };
+            listaPaciente = PacienteDAO.ListarPacienteFiltros(pacienteAComparar);
+            if (listaPaciente.Count() > 0)
+                throw new FaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 2,
+                        MensajeError = "Los datos del paciente ingresado ya se encuentran registrados."
+                    }, new FaultReason("SOAP_2_InsertFail"));
             Paciente PacienteACrear = new Paciente()
             {
                 Nombres=_paciente.Nombres,
@@ -61,7 +80,7 @@ namespace TheRevenge.SOAP
                 throw new FaultException<Observacion>(
                     new Observacion()
                     {
-                        CodigoError = 2,
+                        CodigoError = 3,
                         MensajeError = "El paciente a obtener no se encuentra registrado."
                     }, new FaultReason("SOAP_NotFoundFail"));
             return paciente;
@@ -69,14 +88,34 @@ namespace TheRevenge.SOAP
 
         public Paciente actualizarPaciente(Paciente _paciente)
         {
-            ICollection<Paciente> listaPaciente = PacienteDAO.ListarPacienteFiltros(_paciente);
+            Paciente pacienteABuscar = new Paciente()
+            {
+                Nro_Documento = _paciente.Nro_Documento,
+                Correo = _paciente.Correo
+            };
+            ICollection<Paciente> listaPaciente = PacienteDAO.ListarPacienteFiltros(pacienteABuscar);
             if (listaPaciente.Count() == 0)
                 throw new FaultException<Observacion>(
                     new Observacion()
                     {
-                        CodigoError = 3,
+                        CodigoError = 4,
                         MensajeError = "El paciente ingresado no se encuentra registrado."
                     }, new FaultReason("SOAP_UpdateFail"));
+
+            Paciente pacienteAComparar = new Paciente()
+            {
+                Nombres = _paciente.Nombres,
+                Ape_Paterno = _paciente.Ape_Paterno,
+                Ape_Materno = _paciente.Ape_Materno
+            };
+            listaPaciente = PacienteDAO.ListarPacienteFiltros(pacienteAComparar);
+            if (listaPaciente.Count() > 0)
+                throw new FaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 5,
+                        MensajeError = "Los datos del paciente ingresado ya se encuentran registrados."
+                    }, new FaultReason("SOAP_2_UpdateFail"));
 
             Paciente pacienteAModificar = new Paciente()
             {
@@ -103,7 +142,7 @@ namespace TheRevenge.SOAP
                 throw new FaultException<Observacion>(
                     new Observacion()
                     {
-                        CodigoError = 4,
+                        CodigoError = 6,
                         MensajeError = "El paciente a eliminar no se encuentra registrado."
                     }, new FaultReason("SOAP_DeleteFail"));
             PacienteDAO.Eliminar(PacienteExistente);
@@ -116,7 +155,7 @@ namespace TheRevenge.SOAP
                 throw new FaultException<Observacion>(
                     new Observacion()
                     {
-                        CodigoError = 5,
+                        CodigoError = 7,
                         MensajeError = "La lista no devolvió datos."
                     }, new FaultReason("SOAP_EmptyListFail"));
             return listaPaciente;

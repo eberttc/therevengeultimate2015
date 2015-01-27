@@ -54,6 +54,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceHorario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceMedico\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +95,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceCmp\TheRevenge.SOAPTest.ServiceCmp.Cmp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceHorario\HorariosService.wsdl" />
+    <None Include="Service References\ServiceHorario\HorariosService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceHorario\HorariosService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceHorario\HorariosService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceHorario\TheRevenge.SOAPTest.ServiceHorario.Horario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceMedico\MedicosService.wsdl" />
@@ -131,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceCmp\" />
+    <WCFMetadataStorage Include="Service References\ServiceHorario\" />
     <WCFMetadataStorage Include="Service References\ServiceMedico\" />
     <WCFMetadataStorage Include="Service References\ServicePaciente\" />
     <WCFMetadataStorage Include="Service References\ServiceTipoDoc\" />
@@ -194,6 +213,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceMedico\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceHorario\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceHorario\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceHorario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

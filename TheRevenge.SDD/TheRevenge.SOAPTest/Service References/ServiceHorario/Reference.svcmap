@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c166b351-b122-493e-b5f0-20ac5bf22f66" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:13558/HorariosService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HorariosService.xsd" MetadataType="Schema" ID="7cc543c8-2b55-4422-9dd4-5ac37abe4908" SourceId="1" SourceUrl="http://localhost:13558/HorariosService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HorariosService1.xsd" MetadataType="Schema" ID="b33d43e6-7819-4d92-a7da-f0739fa3a5fc" SourceId="1" SourceUrl="http://localhost:13558/HorariosService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HorariosService2.xsd" MetadataType="Schema" ID="7a788599-d62d-40f4-b98a-3aaa498628d3" SourceId="1" SourceUrl="http://localhost:13558/HorariosService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HorariosService.wsdl" MetadataType="Wsdl" ID="72f60795-6e2b-4b4c-9398-4bd35206e832" SourceId="1" SourceUrl="http://localhost:13558/HorariosService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

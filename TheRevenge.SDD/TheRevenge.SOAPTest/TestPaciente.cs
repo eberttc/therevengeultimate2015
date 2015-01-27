@@ -33,7 +33,7 @@ namespace TheRevenge.SOAPTest
         [TestMethod]
         public void RegistrarPaciente()
         {
-            Paciente _Paciente = new Paciente()
+            ServicePaciente.Paciente _Paciente = new ServicePaciente.Paciente()
             {
                 Nombres = "Yolvi",
                 Ape_Paterno = "Escobar",
@@ -48,9 +48,18 @@ namespace TheRevenge.SOAPTest
                 Password = "p@ssw0rd"
             };
             ServicePaciente.PacientesServiceClient proxy = new ServicePaciente.PacientesServiceClient();
-            //ServicePaciente.Paciente Paciente = proxy.crearPaciente(_Paciente);
-            //Assert.AreEqual(Paciente.TxDescripcion, "Olenka Escobar");
-            //Assert.AreEqual(Paciente.TxDoc_Identidad, "07057975");
+            ServicePaciente.Paciente Paciente = proxy.crearPaciente(_Paciente);
+            Assert.AreEqual(Paciente.Nombres, _Paciente.Nombres);
+            Assert.AreEqual(Paciente.Ape_Paterno, _Paciente.Ape_Paterno);
+            Assert.AreEqual(Paciente.Ape_Materno, _Paciente.Ape_Materno);
+            Assert.AreEqual(Paciente.Sexo, _Paciente.Sexo);
+            Assert.AreEqual(Paciente.Id_Tipo_Doc, _Paciente.Id_Tipo_Doc);
+            Assert.AreEqual(Paciente.Nro_Documento, _Paciente.Nro_Documento);
+            Assert.AreEqual(Paciente.Correo, _Paciente.Correo);
+            Assert.AreEqual(Paciente.Direccion, _Paciente.Direccion);
+            Assert.AreEqual(Paciente.Telefono, _Paciente.Telefono);
+            Assert.AreEqual(Paciente.Fec_Nac, _Paciente.Fec_Nac);
+            Assert.AreEqual(Paciente.Password, _Paciente.Password);
 
         }
 
@@ -58,13 +67,13 @@ namespace TheRevenge.SOAPTest
         [TestMethod]
         public void ListarDetallePaciente()
         {
-            //ServicePaciente.PacienteesServiceClient proxy = new ServicePaciente.PacienteesServiceClient();
+            ServicePaciente.PacientesServiceClient proxy = new ServicePaciente.PacientesServiceClient();
             ServicePaciente.Paciente[] Pacienteproducto = proxy.listarPaciente();
 
             int f;
             for (f = 1; f <= Pacienteproducto.Length; f++)
             {
-                //Assert.AreEqual(Pacienteproducto[0].IdPaciente, 1);
+                Assert.AreEqual(Pacienteproducto[0].Id_Paciente, 1);
             }
 
         }
@@ -72,7 +81,7 @@ namespace TheRevenge.SOAPTest
         [TestMethod]
         public void EliminarPaciente()
         {
-            //ServicePaciente.PacienteesServiceClient proxy = new ServicePaciente.PacienteesServiceClient();
+            ServicePaciente.PacientesServiceClient proxy = new ServicePaciente.PacientesServiceClient();
             proxy.eliminarPaciente(5);
             Assert.AreEqual(null, proxy.consultarPaciente(5));
 

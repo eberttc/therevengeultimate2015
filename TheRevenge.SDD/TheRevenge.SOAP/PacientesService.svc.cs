@@ -25,7 +25,6 @@ namespace TheRevenge.SOAP
         }
         public Paciente crearPaciente(Paciente _paciente)
         {
-            Paciente nuevoPaciente = null;
             Paciente PacienteACrear = new Paciente()
             {
                 Nombres=_paciente.Nombres,
@@ -41,9 +40,7 @@ namespace TheRevenge.SOAP
                 Password = _paciente.Password
             };
 
-            nuevoPaciente = PacienteDAO.Crear(PacienteACrear);
-
-            return nuevoPaciente;
+            return PacienteDAO.Crear(PacienteACrear);
         }
 
         public Paciente consultarPaciente(int intIdPaciente)

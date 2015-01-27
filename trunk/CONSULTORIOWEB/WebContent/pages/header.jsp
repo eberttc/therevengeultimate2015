@@ -43,7 +43,7 @@
 	          <li class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registros<b class="caret"></b></a>
 	            <ul class="dropdown-menu">	             
-	              <li><a href="<%=request.getContextPath()%>/pages/RegistrarJunta.jsp" target="_top">Registro Atencion</a></li>	              
+	              <li><a href="<%=request.getContextPath()%>/pages/RegistrarAtencion.jsp" target="_top">Registro Atencion</a></li>	              
 	                           	             	             
 	            </ul>
 	          </li>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="TheRevenge.Data"
+                   namespace="TheRevenge.Data.Dominio"
+                   default-lazy="false">
+  <class name="Estado_Cita" table="ESTADO_CITA">
+    <id name="Id_Estado" column="ID_ESTADO">
+      <!--generator class="increment"></generator-->
+      <generator class="identity"></generator>
+    </id>
+    <property name="Val_Estado" column="VAL_ESTADO"></property>
+  </class>
+</hibernate-mapping>

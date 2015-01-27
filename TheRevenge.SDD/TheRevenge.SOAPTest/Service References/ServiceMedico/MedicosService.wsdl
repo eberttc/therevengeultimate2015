@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MedicosService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:13558/MedicosService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:13558/MedicosService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:13558/MedicosService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TheRevenge.Data.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMedicosService_crearMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_crearMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_consultarMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:consultarMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_consultarMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:consultarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_actualizarMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_actualizarMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_eliminarMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_eliminarMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_ListarMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedicosService_ListarMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMedicosService">
+    <wsdl:operation name="crearMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedicosService/crearMedico" message="tns:IMedicosService_crearMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedicosService/crearMedicoResponse" message="tns:IMedicosService_crearMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedicosService/consultarMedico" message="tns:IMedicosService_consultarMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedicosService/consultarMedicoResponse" message="tns:IMedicosService_consultarMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedicosService/actualizarMedico" message="tns:IMedicosService_actualizarMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedicosService/actualizarMedicoResponse" message="tns:IMedicosService_actualizarMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedicosService/eliminarMedico" message="tns:IMedicosService_eliminarMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedicosService/eliminarMedicoResponse" message="tns:IMedicosService_eliminarMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedicosService/ListarMedico" message="tns:IMedicosService_ListarMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedicosService/ListarMedicoResponse" message="tns:IMedicosService_ListarMedico_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMedicosService" type="tns:IMedicosService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="crearMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedicosService/crearMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedicosService/consultarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedicosService/actualizarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedicosService/eliminarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedicosService/ListarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MedicosService">
+    <wsdl:port name="BasicHttpBinding_IMedicosService" binding="tns:BasicHttpBinding_IMedicosService">
+      <soap:address location="http://localhost:13558/MedicosService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

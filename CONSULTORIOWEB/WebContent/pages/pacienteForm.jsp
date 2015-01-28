@@ -43,7 +43,8 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content">
-				<form action='<%=request.getContextPath()%>/PacienteServlet?_target=pacientes&action=<%=request.getParameter("action") %>'>
+				<form action='<%=request.getContextPath()%>/PacienteServlet?_target=pacientes&action=<%=request.getAttribute("action") %>' method="post">
+				<input type="hidden" value="<%=paciente.getIdPaciente() %>" name="identificador" /> 
 				<h4 class="page-header">Formulario de Registro</h4>
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Nombre</label>
@@ -97,7 +98,7 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 						</div>
 					<label class="col-sm-2 control-label">Fecha de Nacimiento</label>
 						<div class="col-sm-4">
-							<input type="text" id="input_date" name="_fecnac" class="form-control" value="<%=paciente.getFecNac().toGregorianCalendar().getTime() %>" >
+							<input type="date" id="input_date" name="_fecnac" class="form-control" value="<%=paciente.getFecNac().toGregorianCalendar().getTime() %>" >
 							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
 						</div>
 					</div>
@@ -122,7 +123,7 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
                 
 <script type="text/javascript">
     $(document).on('ready', function () {
-        $('#input_date').datepicker({ setDate: new Date() });
+        //$('#input_date').datepicker({ setDate: new Date() });
     });
 
     $('#btnGrabar').on('click', function () {
@@ -137,5 +138,5 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 
 </div>
 	
-</body>
+</body>	
 </html>

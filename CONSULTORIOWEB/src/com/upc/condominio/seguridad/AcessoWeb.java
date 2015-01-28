@@ -130,7 +130,7 @@ public class AcessoWeb implements Filter {
 	   
 	  
 		
-		String pagInicio[] = {"SISTEMACONDOMINIOWEB","index.jsp","LoginServlet"};
+		String pagInicio[] = {"SISTEMACONDOMINIOWEB","index.jsp","LoginServlet","PacienteServlet"};
 		//si no encuentra retorna false 
 		if (buscar(call,pagInicio)<0)
 			return false;

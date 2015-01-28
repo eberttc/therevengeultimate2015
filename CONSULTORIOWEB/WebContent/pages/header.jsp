@@ -27,7 +27,7 @@
 	          <li class="dropdown">
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
 	            <ul class="dropdown-menu">	             
-	              <li><a href="#">Paciente</a></li>	              
+	              <li><a href="<%=request.getContextPath()%>/PacienteServlet?_target=pacientes">Paciente</a></li>	              
 	             <!--  <li><a href="<%=request.getContextPath()%>/ResidenteServlet?Param=" target="_top">Medicos</a></li> -->	              	             	             
 	              <li><a href="<%=request.getContextPath()%>/pages/ListadoMedicos.jsp" target="_top">Medicos</a></li>
 	            </ul>

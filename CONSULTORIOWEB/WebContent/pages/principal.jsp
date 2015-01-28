@@ -25,7 +25,7 @@
 	   
 	   <!-- Jumbotron -->
 	   <div class="jumbotron">     
-	   		<h4>Bienvenido <b></b></h4>	     
+	   		<h4>Bienvenido <b>${sessionScope.USUARIO_ACTUAL.nombres }</b></h4>	     
 	   </div>
 	   
 	   <div class="row">

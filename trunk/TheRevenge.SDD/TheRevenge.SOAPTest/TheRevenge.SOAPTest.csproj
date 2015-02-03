@@ -48,6 +48,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Medico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceCmp\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -80,6 +81,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="TestCmp.cs" />
+    <Compile Include="TestMedico.cs" />
     <Compile Include="TestPaciente.cs" />
     <Compile Include="TestTipoDocumento.cs" />
     <Compile Include="TestHorario.cs" />

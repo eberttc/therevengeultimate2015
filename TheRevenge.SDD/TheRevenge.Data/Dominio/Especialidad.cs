@@ -9,6 +9,7 @@ namespace TheRevenge.Data.Dominio
     [DataContract]
     public class Especialidad
     {
+        // Clase que manejara el movimiento de informacion de Especialidades que posee la clinica
         [DataMember]
         public int Id_Especialidad { get; set; }
         [DataMember]

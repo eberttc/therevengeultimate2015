@@ -13,15 +13,16 @@ namespace TheRevenge.SOAP
     public interface IMedicosService
     {
         [OperationContract]
-        Medico crearMedico(string nombre, string ape_paterno, string ape_materno, string sexo, int tipo_Documento, string nro_documento, int cmp, int especialidad, string direccion, string correo, string password);
+        Medico crearMedico(Medico _Medico);
         [OperationContract]
         Medico consultarMedico(int idmedico);
         [OperationContract]
-        Medico actualizarMedico(int idmedico, string nombre, string ape_paterno, string ape_materno, string sexo, int tipo_Documento, string nro_documento, int cmp, int especialidad, string direccion, string password);
+        Medico actualizarMedico(Medico _Medico);
         [OperationContract]
         void eliminarMedico(int idmedico);
         [OperationContract]
-        List<Medico> ListarMedico();
+        //List<Medico> ListarMedico();
+        ICollection<Medico> ListarMedico();
 
     }
 }

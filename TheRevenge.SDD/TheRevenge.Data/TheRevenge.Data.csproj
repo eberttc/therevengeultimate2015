@@ -61,7 +61,7 @@
     <Compile Include="Persistencia\CmpDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\EspecialidadDAO.cs" />
-    <Compile Include="Persistencia\EstadoCita.cs" />
+    <Compile Include="Persistencia\EstadoCitaDAO.cs" />
     <Compile Include="Persistencia\HorarioDAO.cs" />
     <Compile Include="Persistencia\MedicoDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />

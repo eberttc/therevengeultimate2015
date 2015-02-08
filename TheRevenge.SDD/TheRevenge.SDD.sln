@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.REST", "TheRevenge.REST\TheRevenge.REST.csproj", "{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.RESTTest", "TheRevenge.RESTTest\TheRevenge.RESTTest.csproj", "{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -42,6 +46,14 @@ Global
 		{BB539ECD-D595-4E6C-A460-8240624BF524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB539ECD-D595-4E6C-A460-8240624BF524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB539ECD-D595-4E6C-A460-8240624BF524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ namespace TheRevenge.Data.Dominio
     [DataContract]
     public class Medico
     {
-        [DataMember]
+        [DataMember (IsRequired = false)]
         public int IdMedico { get; set; }
         [DataMember]
         public string Nombre { get; set; }

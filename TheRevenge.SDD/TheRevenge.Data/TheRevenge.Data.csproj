@@ -49,6 +49,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Cita.cs" />
     <Compile Include="Dominio\Cmp.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
     <Compile Include="Dominio\EstadoCita.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Dominio\Paciente.cs" />
     <Compile Include="Dominio\Tipo_Documento.cs" />
     <Compile Include="Persistencia\BaseDAO.cs" />
+    <Compile Include="Persistencia\CitaDAO.cs" />
     <Compile Include="Persistencia\CmpDAO.cs" />
     <Compile Include="Persistencia\ConexionUtil.cs" />
     <Compile Include="Persistencia\EspecialidadDAO.cs" />

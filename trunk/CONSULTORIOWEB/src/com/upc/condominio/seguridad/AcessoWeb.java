@@ -82,7 +82,7 @@ public class AcessoWeb implements Filter {
 				}
 			}
 		}
-		
+		acceso = true;
 		if (acceso) {
 			chain.doFilter(request, response);
 			return;

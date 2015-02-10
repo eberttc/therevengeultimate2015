@@ -43,6 +43,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		RequestDispatcher rd = request.getRequestDispatcher("index.xhtml");
+		rd.forward(request, response);
 	}
 
 	/*

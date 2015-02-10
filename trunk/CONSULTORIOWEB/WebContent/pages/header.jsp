@@ -19,7 +19,7 @@
 	          <span class="icon-bar"></span>
 	          <span class="icon-bar"></span>
 	        </button>
-	        <a class="navbar-brand">Condominio</a>
+	        <a class="navbar-brand">Consultorio</a>
 	      </div>
 	      <div class="navbar-collapse collapse">
 	        <ul class="nav navbar-nav">
@@ -29,7 +29,7 @@
 	            <ul class="dropdown-menu">	             
 	              <li><a href="<%=request.getContextPath()%>/PacienteServlet?_target=pacientes">Paciente</a></li>	              
 	             <!--  <li><a href="<%=request.getContextPath()%>/ResidenteServlet?Param=" target="_top">Medicos</a></li> -->	              	             	             
-	              <li><a href="<%=request.getContextPath()%>/pages/ListadoMedicos.jsp" target="_top">Medicos</a></li>
+	              <li><a href="<%=request.getContextPath()%>/MedicoServlet?accion=listar" target="_top">Medicos</a></li>
 	            </ul>
 	          </li>
 	         

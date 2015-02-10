@@ -11,7 +11,7 @@ namespace TheRevenge.Data.Dominio
     [DataContract]
     public class Cmp
     {
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public int IdCmp { get; set; }
         [DataMember]
         public string TxDescripcion { get; set; }

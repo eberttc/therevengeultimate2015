@@ -20,15 +20,12 @@ namespace TheRevenge.Data.Dominio
         [DataMember]
         public string Sexo { get; set; }
         [DataMember]
-        //public Tipo_Documento Tipo_Documento { get; set; }
         public int Tipo_Documento { get; set; }
         [DataMember]
         public string Nro_Documento { get; set; }
         [DataMember]
-        // public Cmp Cmp { get; set; }
         public int Cmp { get; set; }
         [DataMember]
-        //public Especialidad Especialidad { get; set; }
         public int Especialidad { get; set; }
         [DataMember]
         public string Direccion { get; set; }

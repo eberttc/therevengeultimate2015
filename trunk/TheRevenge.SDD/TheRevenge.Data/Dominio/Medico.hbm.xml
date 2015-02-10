@@ -5,20 +5,19 @@
                    default-lazy="false">
 	<class name="Medico" table="MEDICO">
 		<id name="IdMedico" column="ID_MEDICO">
-			<!--generator class="increment"></generator-->
 			<generator class="identity"></generator>
 		</id>
 		<property name="Nombre" column="NOMBRES"></property>
 		<property name="Ape_Paterno" column="APE_PATERNO"></property>
 		<property name="Ape_Materno" column="APE_MATERNO"></property>
 		<property name="Sexo" column="SEXO"></property>
+    <property name="Tipo_Documento" column="ID_TIPO_DOC"></property>
 		<property name="Nro_Documento" column="NRO_DOCUMENTO"></property>
-		<property name="Correo" column="CORREO"></property>
+    <property name="Cmp" column="ID_CMP"></property>
+    <property name="Especialidad" column="ID_ESPECIALIDAD"></property>
 		<property name="Direccion" column="DIRECCION"></property>
 		<property name="Telefono" column="TELEFONO"></property>
-		<property name="Password" column="PASSWORD"></property>
-		<many-to-one name="TipoDocumento" column="TIPO_DOCUMENTO" />
-		<many-to-one name="Cmp" column="CMP" />
-		<many-to-one name="Especialidad" column="ESPECIALIDAD" />
+    <property name="Correo" column="CORREO"></property>
+		<property name="Password" column="PASSWORD"></property>	
 	</class>
 </hibernate-mapping>

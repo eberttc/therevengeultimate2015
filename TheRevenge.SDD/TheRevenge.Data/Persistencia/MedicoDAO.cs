@@ -10,22 +10,18 @@ namespace TheRevenge.Data.Persistencia
 {
     public class MedicoDAO : BaseDAO<Medico, int>
     {
-        public ICollection<Medico> ListarMedicoFiltros(Medico _Medico)
+        public ICollection<Medico> BuscarMedicosDuplicados(Medico _Medico)
         {
             using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 ICollection<Medico> persona = sesion
                     .CreateCriteria(typeof(Medico))
-                    .Add(Restrictions.Like("Nombres", _Medico.Nombre + "%"))
-                    .Add(Restrictions.Like("Ape_Paterno", _Medico.Ape_Paterno + "%"))
-                    .Add(Restrictions.Like("Ape_Materno", _Medico.Ape_Materno + "%"))
-                    .Add(Restrictions.Like("Nro_Documento", _Medico.Nro_Documento + "%"))
-                    .Add(Restrictions.Like("Correo", _Medico.Correo + "%"))
+                    .Add(Restrictions.Eq("Nro_Documento", _Medico.Nro_Documento))
+                    .Add(Restrictions.Eq("Cmp", _Medico.Cmp))
+                    .Add(Restrictions.Eq("Correo", _Medico.Correo))
                     .List<Medico>();
                 return persona;
             }
         }
-
-        
     }
 }

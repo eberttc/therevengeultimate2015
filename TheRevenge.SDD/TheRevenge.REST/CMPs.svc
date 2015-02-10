@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TheRevenge.REST.CMPs" CodeBehind="CMPs.svc.cs" %>

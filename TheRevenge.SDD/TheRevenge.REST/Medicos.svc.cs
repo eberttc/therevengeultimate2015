@@ -6,6 +6,10 @@ using System.ServiceModel;
 using System.Text;
 using TheRevenge.Data.Dominio;
 using TheRevenge.Data.Persistencia;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
+using System.ServiceModel.Web;
 
 namespace TheRevenge.REST
 {
@@ -16,28 +20,120 @@ namespace TheRevenge.REST
 
         public Medico CrearMedico(Medico medicoACrear)
         {
-            return dao.Crear(medicoACrear);
+            ICollection<Medico> _lista = dao.BuscarMedicosDuplicados(medicoACrear).ToList();
+            if (_lista.Count() == 0)
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1921/CMPs.svc/CMPs/"+ Convert.ToString(medicoACrear.Cmp));
+                req.Method = "GET";
+                req.ContentType = "application/json";
+                var res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string CmpJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cmp _Cmp = js.Deserialize<Cmp>(CmpJson);
+                if (_Cmp == null)
+                {
+                    throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 1,
+                        MensajeError = "Medico no registrado en CMP."
+                    }, HttpStatusCode.InternalServerError);
+                }
+                else
+                {
+                    return dao.Crear(medicoACrear); 
+                }
+            }
+            else
+            {
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 2,
+                        MensajeError = "Medico ya existe... VERIFICAR."
+                    }, HttpStatusCode.InternalServerError);
+            }
+            
         }
 
         public Medico ObtenerMedico(string IdMedico)
         {
-            return dao.Obtener(Convert.ToInt16(IdMedico));
+            Medico Medico = null;
+            Medico = dao.Obtener(Convert.ToInt16(IdMedico));
+            if (Medico == null)
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 3,
+                        MensajeError = "El Medico a obtener no se encuentra registrado."
+                    }, HttpStatusCode.InternalServerError);
+            return Medico;
         }
 
         public Medico ModificarMedico(Medico medicoAModificar)
         {
-            return dao.Modificar(medicoAModificar);
+            ICollection<Medico> _lista = dao.BuscarMedicosDuplicados(medicoAModificar).ToList();
+            if (_lista.Count() > 0)
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1921/CMPs.svc/CMPs/" + Convert.ToString(medicoAModificar.Cmp));
+                req.Method = "GET";
+                req.ContentType = "application/json";
+                var res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string CmpJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cmp _Cmp = js.Deserialize<Cmp>(CmpJson);
+                if (_Cmp == null)
+                {
+                    throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 4,
+                        MensajeError = "Medico no registrado en CMP."
+                    }, HttpStatusCode.InternalServerError);
+                }
+                else
+                {
+                    return dao.Modificar(medicoAModificar);
+                }
+            }
+            else
+            {
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 5,
+                        MensajeError = "Medico No existe... VERIFICAR."
+                    }, HttpStatusCode.InternalServerError);
+            }
+
         }
 
         public void EliminarMedico(string IdMedico)
         {
-            Medico medicoAEliminar = dao.Obtener(Convert.ToInt16(IdMedico));
-            dao.Eliminar(medicoAEliminar);
+            Medico MedicoExistente = dao.Obtener(Convert.ToInt16(IdMedico));
+            if (MedicoExistente == null)
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 6,
+                        MensajeError = "El Medico a eliminar no se encuentra registrado."
+                    }, HttpStatusCode.InternalServerError);
+            dao.Eliminar(MedicoExistente);
         }
 
         public List<Medico> ListarMedicos()
         {
-            return dao.ListarTodos().ToList();
+            List<Medico> listaMedico = dao.ListarTodos().ToList();
+            if (listaMedico.Count() == 0)
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 7,
+                        MensajeError = "La lista no devolvió datos."
+                    }, HttpStatusCode.InternalServerError);
+            return listaMedico;
         }
     }
 }

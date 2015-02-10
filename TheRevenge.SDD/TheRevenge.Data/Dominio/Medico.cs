@@ -33,6 +33,8 @@ namespace TheRevenge.Data.Dominio
         [DataMember]
         public string Direccion { get; set; }
         [DataMember]
+        public string Telefono { get; set; }
+        [DataMember]
         public string Correo { get; set; }
         [DataMember]
         public string Password { get; set; }

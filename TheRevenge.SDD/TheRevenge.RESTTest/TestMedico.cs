@@ -21,7 +21,7 @@ namespace TheRevenge.RESTTest
         {
             //--------post
             //Prueba de creación de extintor vía HTTP POST
-            string postdata = "{\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"46904157\",\"Cmp\":12,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Correo\":\"yolvi13@gmail.com\",\"Password\":\"yolvi\"}";//JSON
+            string postdata = "{\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"46904157\",\"Cmp\":12,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Telefono\":\"3270317\",\"Correo\":\"yolvi13@gmail.com\",\"Password\":\"yolvi\"}";//JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
                 .Create("http://localhost:1921/Medicos.svc/Medicos");
@@ -44,6 +44,7 @@ namespace TheRevenge.RESTTest
             Assert.AreEqual(1, MedicoCreado.Cmp);
             Assert.AreEqual(12, MedicoCreado.Especialidad);
             Assert.AreEqual("Jr. Hoyle P.", MedicoCreado.Direccion);
+            Assert.AreEqual("3270317", MedicoCreado.Telefono);
             Assert.AreEqual("yolvi13@gmail.com", MedicoCreado.Correo);
             Assert.AreEqual("yolvi", MedicoCreado.Password); 
         }
@@ -98,7 +99,7 @@ namespace TheRevenge.RESTTest
         [TestMethod]
         public void Put()
         {
-            string postdata = "{\"IdMedico\":2,\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"46904157\",\"Cmp\":12,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Correo\":\"yolvi13@gmail.com\",\"Password\":\"yolvi\"}";//JSON
+            string postdata = "{\"IdMedico\":2,\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"46904157\",\"Cmp\":12,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Telefono\":\"3270317\",\"Correo\":\"yolvi13@gmail.com\",\"Password\":\"yolvi\"}";//JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest request = (HttpWebRequest)WebRequest
                .Create("http://localhost:1921/Medicos.svc/Medicos");
@@ -122,6 +123,7 @@ namespace TheRevenge.RESTTest
             Assert.AreEqual(1, MedicoModif.Cmp);
             Assert.AreEqual(12, MedicoModif.Especialidad);
             Assert.AreEqual("Jr. Hoyle P.", MedicoModif.Direccion);
+            Assert.AreEqual("3270317", MedicoModif.Telefono);
             Assert.AreEqual("yolvi13@gmail.com", MedicoModif.Correo);
             Assert.AreEqual("yolvi", MedicoModif.Password); 
         }

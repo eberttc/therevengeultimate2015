@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Citas.svc" />
+    <Content Include="CMPs.svc" />
     <Content Include="Medicos.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -67,7 +68,11 @@
     <Compile Include="Citas.svc.cs">
       <DependentUpon>Citas.svc</DependentUpon>
     </Compile>
+    <Compile Include="CMPs.svc.cs">
+      <DependentUpon>CMPs.svc</DependentUpon>
+    </Compile>
     <Compile Include="ICitaServices.cs" />
+    <Compile Include="ICMPs.cs" />
     <Compile Include="IMedicos.cs" />
     <Compile Include="Medicos.svc.cs">
       <DependentUpon>Medicos.svc</DependentUpon>

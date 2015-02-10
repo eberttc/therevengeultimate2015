@@ -3,7 +3,7 @@
                    assembly="TheRevenge.Data"
                    namespace="TheRevenge.Data.Dominio"
                    default-lazy="false">
-	<class name="Tipo_Documento" table="ESPECIALIDAD">
+	<class name="Especialidad" table="ESPECIALIDAD">
 		<id name="ID_Especialidad" column="ID_ESPECIALIDAD">
 			<!--generator class="increment"></generator-->
 			<generator class="identity"></generator>

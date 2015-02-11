@@ -12,7 +12,7 @@ namespace TheRevenge.Data.Dominio
     [DataContract]
     public class Tipo_Documento
     {
-        [DataMember]
+        [DataMember (IsRequired=false)]
         public int ID_Tipo_Doc { get; set; }
         [DataMember]
         public string Descripcion { get; set; }

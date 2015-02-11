@@ -17,15 +17,15 @@ namespace TheRevenge.REST
         [WebInvoke(Method = "POST", UriTemplate = "Especialidades", ResponseFormat = WebMessageFormat.Json)]
         Especialidad CrearEspecialidad(Especialidad especialidadACrear);
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "Especialidades/{Id_Especialidad}", ResponseFormat = WebMessageFormat.Json)]
-        Especialidad ObtenerEspecialidad(string Id_Especialidad);
+        [WebInvoke(Method = "GET", UriTemplate = "Especialidades/{IdEspecialidad}", ResponseFormat = WebMessageFormat.Json)]
+        Especialidad ObtenerEspecialidad(string IdEspecialidad);
         [OperationContract]
         [WebInvoke(Method = "PUT", UriTemplate = "Especialidades", ResponseFormat = WebMessageFormat.Json)]
         Especialidad ModificarEspecialidad(Especialidad especialidadAModificar);
         [OperationContract]
         //[WebInvoke(Method = "DELETE", UriTemplate = "Especialidades/{codigo}", ResponseFormat = WebMessageFormat.Json)]
-        [WebInvoke(Method = "DELETE", UriTemplate = "Especialidades/{Id_Especialidad}")]
-        void EliminarEspecialidad(string Id_Especialidad);
+        [WebInvoke(Method = "DELETE", UriTemplate = "Especialidades/{IdEspecialidad}")]
+        void EliminarEspecialidad(string IdEspecialidad);
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Especialidades", ResponseFormat = WebMessageFormat.Json)]
         List<Especialidad> ListarEspecialidades();

@@ -55,7 +55,9 @@
   <ItemGroup>
     <Content Include="Citas.svc" />
     <Content Include="CMPs.svc" />
+    <Content Include="Especialidades.svc" />
     <Content Include="Medicos.svc" />
+    <Content Include="Tipos.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -71,13 +73,21 @@
     <Compile Include="CMPs.svc.cs">
       <DependentUpon>CMPs.svc</DependentUpon>
     </Compile>
+    <Compile Include="Especialidades.svc.cs">
+      <DependentUpon>Especialidades.svc</DependentUpon>
+    </Compile>
     <Compile Include="ICitaServices.cs" />
     <Compile Include="ICMPs.cs" />
+    <Compile Include="IEspecialidades.cs" />
     <Compile Include="IMedicos.cs" />
+    <Compile Include="ITipos.cs" />
     <Compile Include="Medicos.svc.cs">
       <DependentUpon>Medicos.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tipos.svc.cs">
+      <DependentUpon>Tipos.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@ namespace TheRevenge.Data.Dominio
     {
         // Clase que manejara el movimiento de informacion de Especialidades que posee la clinica
         [DataMember (IsRequired = false)]
-        public int Id_Especialidad { get; set; }
+        public int IdEspecialidad { get; set; }
         [DataMember]
         public string Descripcion { get; set; }
     }

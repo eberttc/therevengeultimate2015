@@ -19,9 +19,9 @@ namespace TheRevenge.REST
             return dao.Crear(especialidadACrear);
         }
 
-        public Especialidad ObtenerEspecialidad(string Id_Especialidad)
+        public Especialidad ObtenerEspecialidad(string IdEspecialidad)
         {
-            return dao.Obtener(Convert.ToInt16(Id_Especialidad));
+            return dao.Obtener(Convert.ToInt16(IdEspecialidad));
         }
 
         public Especialidad ModificarEspecialidad(Especialidad especialidadAModificar)
@@ -29,9 +29,9 @@ namespace TheRevenge.REST
             return dao.Modificar(especialidadAModificar);
         }
 
-        public void EliminarEspecialidad(string Id_Especialidad)
+        public void EliminarEspecialidad(string IdEspecialidad)
         {
-            Especialidad especialidadAEliminar = dao.Obtener(Convert.ToInt16(Id_Especialidad));
+            Especialidad especialidadAEliminar = dao.Obtener(Convert.ToInt16(IdEspecialidad));
             dao.Eliminar(especialidadAEliminar);
         }
 

@@ -4,7 +4,7 @@
                    namespace="TheRevenge.Data.Dominio"
                    default-lazy="false">
 	<class name="Especialidad" table="ESPECIALIDAD">
-		<id name="ID_Especialidad" column="ID_ESPECIALIDAD">
+		<id name="Id_Especialidad" column="ID_ESPECIALIDAD">
 			<!--generator class="increment"></generator-->
 			<generator class="identity"></generator>
 		</id>

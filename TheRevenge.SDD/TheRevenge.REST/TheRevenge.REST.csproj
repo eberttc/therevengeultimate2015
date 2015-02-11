@@ -55,7 +55,7 @@
   <ItemGroup>
     <Content Include="Citas.svc" />
     <Content Include="CMPs.svc" />
-    <Content Include="Especialidades.svc" />
+    <EmbeddedResource Include="Especialidades.svc" />
     <Content Include="Medicos.svc" />
     <Content Include="Tipos.svc" />
     <Content Include="Web.config" />

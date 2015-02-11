@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
 public class DateTimeUtil {
     
     private static final int MS_IN_HOUR = 1000 * 60 * 60;
@@ -197,4 +201,94 @@ public class DateTimeUtil {
 		}
 		return cumple;
 	}
+	
+	 public static XMLGregorianCalendar 
+     convertStringDateToXmlGregorianCalendar( String dateStr, String dateFormat, boolean noTimezone ) 
+ {
+     try
+     {    	 
+         // this may throw DatatypeConfigurationException
+         DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
+         GregorianCalendar calendar = new GregorianCalendar();
+         // reset all fields
+         calendar.clear();
+
+         Calendar parsedCalendar = Calendar.getInstance();
+         // eg "yyyy-MM-dd"
+         DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+         dateStr = dateStr +" 00:00:00";
+         // this may throw ParseException
+         Date rawDate = sdf.parse( dateStr );
+         parsedCalendar.setTime( rawDate );
+
+         // set date from parameter and leave time as default calendar values
+         calendar.set( parsedCalendar.get( Calendar.YEAR ), 
+                         parsedCalendar.get( Calendar.MONTH ),
+                         parsedCalendar.get( Calendar.DATE ),
+                         parsedCalendar.get(Calendar.HOUR),
+                         parsedCalendar.get(Calendar.MINUTE),
+                         parsedCalendar.get(Calendar.SECOND));
+
+         XMLGregorianCalendar xmlCalendar = datatypeFactory.newXMLGregorianCalendar( calendar );
+         // clears default timezone
+         if ( noTimezone )
+         {
+             xmlCalendar.setTimezone( DatatypeConstants.FIELD_UNDEFINED );       
+         }
+
+         return xmlCalendar;
+     }
+     catch ( Exception e )
+     {
+         throw new RuntimeException( e );
+     }
+ }
+
+ public static XMLGregorianCalendar 
+     convertStringTimeToXmlGregorianCalendar( String timeStr, String timeFormat, boolean noFractionalSecs, boolean noTimezone )
+ {
+     try
+     {
+         // this may throw DatatypeConfigurationException
+         DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
+         GregorianCalendar calendar = new GregorianCalendar();
+         // reset all fields
+         calendar.clear();
+
+         Calendar parsedCalendar = Calendar.getInstance();
+         // eg "HH:mm:ss"
+         SimpleDateFormat sdf = new SimpleDateFormat( timeFormat );
+         // this may throw ParseException
+         Date rawDate = sdf.parse( timeStr );
+         parsedCalendar.setTime( rawDate );
+
+         // set time from time parameter and set date to default values
+         calendar.set( calendar.get( GregorianCalendar.YEAR ), 
+                         calendar.get( GregorianCalendar.MONTH ),
+                         calendar.get( GregorianCalendar.DATE ), 
+                         parsedCalendar.get( Calendar.HOUR ),
+                         parsedCalendar.get( Calendar.MINUTE ), 
+                         parsedCalendar.get( Calendar.SECOND ) );
+
+         XMLGregorianCalendar xmlCalendar = datatypeFactory.newXMLGregorianCalendar( calendar );
+         // clears default timezone
+         if ( noTimezone )
+         {
+             xmlCalendar.setTimezone( DatatypeConstants.FIELD_UNDEFINED );
+         }
+         // clears default fractional seconds
+         if ( noFractionalSecs )
+         {
+             xmlCalendar.setFractionalSecond( null );
+         }
+
+         return xmlCalendar;
+     }
+     catch ( Exception e )
+     {
+         throw new RuntimeException( e );
+     }
+ }
+	
+	
 }

@@ -100,11 +100,17 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 <div class="row">		
 		<div class="col-sm-12" >
 			<div class="bs-example">				
-				<button class="btn  btn-danger" type="button" style="float:right"   id="btnAgregar">Agregar</button>				
+				<button class="btn  btn-danger" type="button" style="float:right"   id="btnAgregar" >Agregar</button>				
 			</div>
 		</div>
 </div>
 </div>
-	
+
+<script type="text/javascript">
+	$("#btnAgregar").on('click' , function(){
+		window.location.href = '<%=request.getContextPath()%>/PacienteServlet?_target=formulario'
+	});
+</script>
+
 </body>
 </html>

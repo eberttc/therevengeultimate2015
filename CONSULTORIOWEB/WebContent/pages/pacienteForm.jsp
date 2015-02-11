@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.upc.consultorio.ws.proxy.Paciente" %>    
+<%@ page import="com.upc.condominio.forms.PacienteForm" %> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%=request.getContextPath()%>/js/bootstrap-3.0.0.js"></script>
        <script src="<%=request.getContextPath()%>/js/bootbox.min.js"></script>
-  
+  <script src="<%=request.getContextPath()%>/js/jquery-ui-11.js"></script>
     
 	<title>Consultorio</title>
 </head>
@@ -27,7 +28,7 @@
 	/**String mensaje=request.getAttribute("mensaje")==null?"":request.getAttribute("mensaje").toString();
 	String vreturn=request.getAttribute("vreturn")==null?"":request.getAttribute("vreturn").toString();
 String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.getAttribute("txtTipoDocumento").toString();**/	
-	Paciente paciente = (Paciente)request.getAttribute("paciente");
+	PacienteForm form = (PacienteForm)request.getAttribute("pacienteForm");
 	
 %>
 <body>	
@@ -44,61 +45,78 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 			</div>
 			<div class="box-content">
 				<form action='<%=request.getContextPath()%>/PacienteServlet?_target=pacientes&action=<%=request.getAttribute("action") %>' method="post">
-				<input type="hidden" value="<%=paciente.getIdPaciente() %>" name="identificador" /> 
+				<input type="hidden" value="<%=form.getIdentificador() %>" name="_identificador" /> 
 				<h4 class="page-header">Formulario de Registro</h4>
+				
+				       <div style="padding-top:30px" class="panel-body" >
+                    	 <% if (request.getAttribute("isSaved") != null) { %>
+                    	<!--  <div id="alertSuccess" class="alert alert-success" role="alert">  <strong>Correcto ! </strong> El registro ha sido guardado     </div>
+                    	<script type="text/javascript">$("#alertSuccess").fadeOut(3000);</script> -->
+                    	<% } %>
+                    	<% if (request.getAttribute("errors") != null) { %>
+						<div id="alertError" class="alert alert-danger" role="alert"><Strong>Error ! </Strong>
+							<% for(Object error : (Object[])request.getAttribute("errors")){ %>
+							<p><%=error %></p>
+							<%} %>
+						</div>
+						<% } %>
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                        </div>
+				
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Nombre</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_nombres" data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=paciente.getNombres().getValue() %>">
+							<input type="text" class="form-control" name="_nombre" data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getNombre() %>">
 						</div>
 						<label class="col-sm-2 control-label">Apellido Paterno</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_pat" data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=paciente.getApePaterno().getValue() %>" >
+							<input type="text" class="form-control" name="_apellidoPaterno" data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=form.getApellidoPaterno() %>" >
 						</div>
 					</div>
                     
                     <div class="form-group">
 						<label class="col-sm-2 control-label">Apellido Materno</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_mat"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=paciente.getApeMaterno().getValue() %>">
+							<input type="text" class="form-control" name="_apellidoMaterno"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getApellidoMaterno()%>">
 						</div>
 						<label class="col-sm-2 control-label">Sexo</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_sex"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=paciente.getSexo().getValue() %>">
+							<input type="text" class="form-control" name="_sexo"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=form.getSexo() %>">
 						</div>
 					</div>
                         <div class="form-group">
 						<label class="col-sm-2 control-label">Tipo de Documento</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_tdoc"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=paciente.getIdTipoDoc().intValue() %>" >
+							<input type="text" class="form-control" name="_tipoDocumento"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getTipoDocumento() %>" >
 						</div>
 						<label class="col-sm-2 control-label">Numero de Documento</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_ndoc" data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=paciente.getNroDocumento().getValue() %>">
+							<input type="text" class="form-control" name="_numeroDocumento" data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=form.getNumeroDocumento() %>">
 						</div>
 					</div>
                     	<div class="form-group">
 						<label class="col-sm-2 control-label">Correo</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name="_mail" value="<%=paciente.getCorreo().getValue() %>" >
+							<input type="text" class="form-control" name="_correo" value="<%=form.getCorreo() %>" >
 							
 						</div>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" value="<%=paciente.getCorreo().getValue() %>" >							
+							<input type="text" class="form-control" value="<%=form.getCorreo() %>" >							
 						</div>
 						<label class="col-sm-2 control-label">Direccion</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_direccion"  data-toggle="tooltip" data-placement="top" title="Hello world!" value="<%=paciente.getDireccion().getValue() %>">
+							<input type="text" class="form-control" name="_direccion"  data-toggle="tooltip" data-placement="top" title="Hello world!" value="<%=form.getDireccion() %>">
 						</div>					
 					</div>
                              <div class="form-group has-feedback">
 						<label class="col-sm-2 control-label">Teléfono</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_telefono"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=paciente.getTelefono().getValue() %>">
+							<input type="text" class="form-control" name="_telefono"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getTelefono() %>">
 						</div>
 					<label class="col-sm-2 control-label">Fecha de Nacimiento</label>
 						<div class="col-sm-4">
-							<input type="date" id="input_date" name="_fecnac" class="form-control" value="<%=paciente.getFecNac().toGregorianCalendar().getTime() %>" >
+							<input type="text" id="input_date" name="_fechaNacimiento" class="form-control" value="<%=form.getFechaNacimiento() %>" >
 							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
 						</div>
 					</div>
@@ -120,21 +138,15 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 	</div>
 </div>
 
-                
 <script type="text/javascript">
-    $(document).on('ready', function () {
-        //$('#input_date').datepicker({ setDate: new Date() });
-    });
-
-    $('#btnGrabar').on('click', function () {
-       // window.location.href = '@Url.Action("index", "paciente")';
-    });
-</script>
-
-        
-    
-
-
+$(document).on('ready' , function(){
+	var fecNacimientio="";
+	<% if (!form.getFechaNacimiento().equals("")) { %>
+	 fecNacimientio = <%=form.getFechaNacimiento() %>;
+	<% }%>
+	$('#input_date').datepicker({ setDate: fecNacimientio ==='' ? new Date() : fecNacimientio  , dateFormat: 'dd/mm/yy' });
+});
+</script>                
 
 </div>
 	

@@ -18,7 +18,7 @@ namespace TheRevenge.RESTTest
         {
             //--------post
             //Prueba de creación de extintor vía HTTP POST
-            string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+            string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest req = (HttpWebRequest)WebRequest
                 .Create("http://localhost:1921/Citas.svc/Citas");
@@ -35,6 +35,7 @@ namespace TheRevenge.RESTTest
             Assert.AreEqual("21/02/2015", citaCreado.FecAtencion);
             Assert.AreEqual("Sano", citaCreado.Diagnostico);
             Assert.AreEqual("", citaCreado.Observacion);
+            Assert.AreEqual(1, citaCreado.IdEspecialidad);
             Assert.AreEqual(1, citaCreado.IdPaciente);
             Assert.AreEqual(2, citaCreado.IdEstado);
             Assert.AreEqual(3, citaCreado.IdMedico);
@@ -89,7 +90,7 @@ namespace TheRevenge.RESTTest
         [TestMethod]
         public void Put()
         {
-            string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+            string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
             byte[] data = Encoding.UTF8.GetBytes(postdata);
             HttpWebRequest request = (HttpWebRequest)WebRequest
                .Create("http://localhost:1921/Citas.svc/Citas");
@@ -107,6 +108,7 @@ namespace TheRevenge.RESTTest
             Assert.AreEqual("21/02/2015", citaModif.FecAtencion);
             Assert.AreEqual("Sano", citaModif.Diagnostico);
             Assert.AreEqual("", citaModif.Observacion);
+            Assert.AreEqual(1, citaModif.IdEspecialidad);
             Assert.AreEqual(1, citaModif.IdPaciente);
             Assert.AreEqual(2, citaModif.IdEstado);
             Assert.AreEqual(3, citaModif.IdMedico);

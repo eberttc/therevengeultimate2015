@@ -4,10 +4,10 @@
                    namespace="TheRevenge.Data.Dominio"
                    default-lazy="false">
   <class name="Horario" table="HORARIO">
-    <id name="Id_Horario" column="ID_HORARIO">
+    <id name="IdHorario" column="ID_HORARIO">
       <!--generator class="increment"></generator-->
       <generator class="identity"></generator>
     </id>
-    <property name="Val_Hor" column="VAL_HOR"></property>
+    <property name="ValHor" column="VAL_HOR"></property>
   </class>
 </hibernate-mapping>

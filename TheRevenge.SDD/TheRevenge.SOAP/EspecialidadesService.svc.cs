@@ -41,7 +41,7 @@ namespace TheRevenge.SOAP
         {
             Especialidad especialidadCrear = new Especialidad()
             {
-                Id_Especialidad = idespecialidad,
+                IdEspecialidad = idespecialidad,
                 Descripcion = descripcion
             };
             return EspecialidadDAO.Modificar(especialidadCrear);

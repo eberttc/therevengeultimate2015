@@ -8,6 +8,7 @@ using TheRevenge.Data.Dominio;
 using TheRevenge.Data.Persistencia;
 using System.Net;
 using System.ServiceModel.Web;
+using System.Messaging;
 
 namespace TheRevenge.REST
 {
@@ -18,32 +19,48 @@ namespace TheRevenge.REST
 
         public Cita CrearCita(Cita citaACrear)
         {
-            ICollection<Cita> _listaMedCita = dao.BuscarMedicosConCitas(citaACrear).ToList();
-            if (_listaMedCita.Count() == 0)
+            try
             {
-                ICollection<Cita> _listaPacCita = dao.BuscarPacienteConCita(citaACrear).ToList();
-                if (_listaPacCita.Count() == 0)
+                ICollection<Cita> _listaMedCita = dao.BuscarMedicosConCitas(citaACrear).ToList();
+                if (_listaMedCita.Count() == 0)
                 {
-                    return dao.Crear(citaACrear);
+                    ICollection<Cita> _listaPacCita = dao.BuscarPacienteConCita(citaACrear).ToList();
+                    if (_listaPacCita.Count() == 0)
+                    {
+                        return dao.Crear(citaACrear);
+                    }
+                    else
+                    {
+                        throw new WebFaultException<Observacion>(
+                        new Observacion()
+                        {
+                            CodigoError = 1,
+                            MensajeError = "Ya se cuenta con una reserva de cita en el horario seleccionado"
+                        }, HttpStatusCode.InternalServerError);
+                    }
                 }
                 else
                 {
                     throw new WebFaultException<Observacion>(
-                    new Observacion()
-                    {
-                        CodigoError = 1,
-                        MensajeError = "Ya se cuenta con una reserva de cita en el horario seleccionado"
-                    }, HttpStatusCode.InternalServerError);
+                        new Observacion()
+                        {
+                            CodigoError = 2,
+                            MensajeError = "El doctor no cuenta con este horario disponible"
+                        }, HttpStatusCode.InternalServerError);
                 }
             }
-            else
+            catch (Exception)
             {
-                throw new WebFaultException<Observacion>(
-                    new Observacion()
-                    {
-                        CodigoError = 2,
-                        MensajeError = "El doctor no cuenta con este horario disponible"
-                    }, HttpStatusCode.InternalServerError);
+                string rutacola = @".\private$\CitaRecibida";
+                if (!MessageQueue.Exists(rutacola))
+                    MessageQueue.Create(rutacola);
+
+                MessageQueue cola = new MessageQueue(rutacola);
+                Message mensaje = new Message();
+                mensaje.Label = "Nueva Cita";
+                mensaje.Body = citaACrear;
+                cola.Send(mensaje);
+                return null;
             }
         }
 

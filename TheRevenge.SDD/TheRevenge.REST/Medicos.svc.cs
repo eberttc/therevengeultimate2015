@@ -23,7 +23,7 @@ namespace TheRevenge.REST
             ICollection<Medico> _lista = dao.BuscarMedicosDuplicados(medicoACrear).ToList();
             if (_lista.Count() == 0)
             {
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1921/CMPs.svc/CMPs/"+ Convert.ToString(medicoACrear.Cmp));
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://localhost:1921/Medicos.svc/Medicos/"+ Convert.ToString(medicoACrear.Cmp));
                 req.Method = "GET";
                 req.ContentType = "application/json";
                 var res = (HttpWebResponse)req.GetResponse();

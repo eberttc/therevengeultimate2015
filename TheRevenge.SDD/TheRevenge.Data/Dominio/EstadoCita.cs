@@ -9,9 +9,9 @@ namespace TheRevenge.Data.Dominio
     [DataContract]
     public class EstadoCita
     {
+        [DataMember ( IsRequired = false )]
+        public int IdEstado { get; set; }
         [DataMember]
-        public int Id_Estado { get; set; }
-        [DataMember]
-        public string Val_Estado { get; set; }
+        public string ValEstado { get; set; }
     }
 }

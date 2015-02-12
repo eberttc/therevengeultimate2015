@@ -3,11 +3,11 @@
                    assembly="TheRevenge.Data"
                    namespace="TheRevenge.Data.Dominio"
                    default-lazy="false">
-  <class name="Estado_Cita" table="ESTADO_CITA">
-    <id name="Id_Estado" column="ID_ESTADO">
+  <class name="EstadoCita" table="ESTADO_CITA">
+    <id name="IdEstado" column="ID_ESTADO">
       <!--generator class="increment"></generator-->
       <generator class="identity"></generator>
     </id>
-    <property name="Val_Estado" column="VAL_ESTADO"></property>
+    <property name="ValEstado" column="VAL_ESTADO"></property>
   </class>
 </hibernate-mapping>

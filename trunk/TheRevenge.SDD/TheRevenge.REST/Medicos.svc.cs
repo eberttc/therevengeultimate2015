@@ -135,5 +135,19 @@ namespace TheRevenge.REST
                     }, HttpStatusCode.InternalServerError);
             return listaMedico;
         }
+
+
+        public List<Medico> BuscarMedicosPorEsp(string Especialidad)
+        {
+            List<Medico> listaMedico = dao.BuscarMedicosPorEspecialidad(Especialidad).ToList();
+            if (listaMedico.Count() == 0)
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 8,
+                        MensajeError = "La lista no devolvió datos."
+                    }, HttpStatusCode.InternalServerError);
+            return listaMedico;
+        }
     }
 }

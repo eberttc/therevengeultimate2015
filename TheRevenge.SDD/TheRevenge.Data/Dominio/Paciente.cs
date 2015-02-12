@@ -12,7 +12,7 @@ namespace TheRevenge.Data.Dominio
     public class Paciente
     {
         [DataMember]
-        public int Id_Paciente { get; set; }
+        public int IdPaciente { get; set; }
         [DataMember]
         public String Nombres { get; set; }
         [DataMember]

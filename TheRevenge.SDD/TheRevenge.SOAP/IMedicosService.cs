@@ -12,17 +12,17 @@ namespace TheRevenge.SOAP
     [ServiceContract]
     public interface IMedicosService
     {
-        [OperationContract]
-        Medico crearMedico(Medico _Medico);
-        [OperationContract]
-        Medico consultarMedico(int idmedico);
-        [OperationContract]
-        Medico actualizarMedico(Medico _Medico);
-        [OperationContract]
-        void eliminarMedico(int idmedico);
-        [OperationContract]
+        //[OperationContract]
+        //Medico crearMedico(Medico _Medico);
+        //[OperationContract]
+        //Medico consultarMedico(int idmedico);
+        //[OperationContract]
+        //Medico actualizarMedico(Medico _Medico);
+        //[OperationContract]
+        //void eliminarMedico(int idmedico);
+        //[OperationContract]
         //List<Medico> ListarMedico();
-        ICollection<Medico> ListarMedico();
+        //ICollection<Medico> ListarMedico();
 
     }
 }

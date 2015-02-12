@@ -6,6 +6,8 @@ using System.ServiceModel;
 using System.Text;
 using TheRevenge.Data.Dominio;
 using TheRevenge.Data.Persistencia;
+using System.Net;
+using System.ServiceModel.Web;
 
 namespace TheRevenge.REST
 {
@@ -16,7 +18,33 @@ namespace TheRevenge.REST
 
         public Cita CrearCita(Cita citaACrear)
         {
-            return dao.Crear(citaACrear);
+            ICollection<Cita> _listaMedCita = dao.BuscarMedicosConCitas(citaACrear).ToList();
+            if (_listaMedCita.Count() == 0)
+            {
+                ICollection<Cita> _listaPacCita = dao.BuscarPacienteConCita(citaACrear).ToList();
+                if (_listaPacCita.Count() == 0)
+                {
+                    return dao.Crear(citaACrear);
+                }
+                else
+                {
+                    throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 1,
+                        MensajeError = "Ya se cuenta con una reserva de cita en el horario seleccionado"
+                    }, HttpStatusCode.InternalServerError);
+                }
+            }
+            else
+            {
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 2,
+                        MensajeError = "El doctor no cuenta con este horario disponible"
+                    }, HttpStatusCode.InternalServerError);
+            }
         }
 
         public Cita ObtenerCita(string IdCita)
@@ -26,7 +54,33 @@ namespace TheRevenge.REST
 
         public Cita ModificarCita(Cita citaAModificar)
         {
-            return dao.Modificar(citaAModificar);
+            ICollection<Cita> _listaMedCita = dao.BuscarMedicosConCitas(citaAModificar).ToList();
+            if (_listaMedCita.Count() == 0)
+            {
+                ICollection<Cita> _listaPacCita = dao.BuscarPacienteConCita(citaAModificar).ToList();
+                if (_listaPacCita.Count() == 0)
+                {
+                    return dao.Crear(citaAModificar);
+                }
+                else
+                {
+                    throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 1,
+                        MensajeError = "Ya se cuenta con una reserva de cita en el horario seleccionado"
+                    }, HttpStatusCode.InternalServerError);
+                }
+            }
+            else
+            {
+                throw new WebFaultException<Observacion>(
+                    new Observacion()
+                    {
+                        CodigoError = 2,
+                        MensajeError = "El doctor no cuenta con este horario disponible"
+                    }, HttpStatusCode.InternalServerError);
+            }
         }
 
         public void EliminarCita(string IdCita)

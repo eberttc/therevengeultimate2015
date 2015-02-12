@@ -4,15 +4,14 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TheRevenge.Data.Persistencia;
 using TheRevenge.Data.Dominio;
+using TheRevenge.Data.Persistencia;
 
 namespace TheRevenge.REST
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "CitaServices" en el código, en svc y en el archivo de configuración a la vez.
-    public class Citas : ICitaServices
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Citas" en el código, en svc y en el archivo de configuración a la vez.
+    public class Citas : ICitas
     {
-
         private CitaDAO dao = new CitaDAO();
 
         public Cita CrearCita(Cita citaACrear)

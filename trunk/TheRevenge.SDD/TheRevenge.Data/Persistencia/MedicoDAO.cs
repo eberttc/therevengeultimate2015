@@ -23,13 +23,13 @@ namespace TheRevenge.Data.Persistencia
                 return persona;
             }
         }
-        public ICollection<Medico> BuscarMedicosPorEspecialidad(Medico _Medico)
+        public ICollection<Medico> BuscarMedicosPorEspecialidad(String Especialidad)
         {
             using (ISession sesion = NHibernateHelper.ObtenerSesion())
             {
                 ICollection<Medico> persona = sesion
                     .CreateCriteria(typeof(Medico))
-                    .Add(Restrictions.Eq("IdEspecialidad", _Medico.Especialidad))
+                    .Add(Restrictions.Eq("Especialidad", Especialidad))
                     .List<Medico>();
                 return persona;
             }

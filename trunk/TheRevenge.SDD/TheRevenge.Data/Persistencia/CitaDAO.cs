@@ -25,5 +25,19 @@ namespace TheRevenge.Data.Persistencia
                 return cita;
             }
         }
+        public ICollection<Cita> BuscarPacienteConCita(Cita _Cita)
+        {
+            using (ISession sesion = NHibernateHelper.ObtenerSesion())
+            {
+                ICollection<Cita> cita = sesion
+                    .CreateCriteria(typeof(Cita))
+                    .Add(Restrictions.Eq("IdEspecialidad", _Cita.IdEspecialidad))
+                    .Add(Restrictions.Eq("IdHorario", _Cita.IdHorario))
+                    .Add(Restrictions.Eq("IdEstado", _Cita.IdEstado))
+                    .Add(Restrictions.Eq("IdPaciente", _Cita.IdPaciente))
+                    .List<Cita>();
+                return cita;
+            }
+        }
     }
 }

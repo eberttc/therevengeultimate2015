@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -56,6 +57,7 @@
     <Content Include="Citas.svc" />
     <Content Include="CMPs.svc" />
     <EmbeddedResource Include="Especialidades.svc" />
+    <Content Include="Horarios.svc" />
     <Content Include="Medicos.svc" />
     <Content Include="Tipos.svc" />
     <Content Include="Web.config" />
@@ -76,9 +78,13 @@
     <Compile Include="Especialidades.svc.cs">
       <DependentUpon>Especialidades.svc</DependentUpon>
     </Compile>
-    <Compile Include="ICitaServices.cs" />
+    <Compile Include="Horarios.svc.cs">
+      <DependentUpon>Horarios.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ICitas.cs" />
     <Compile Include="ICMPs.cs" />
     <Compile Include="IEspecialidades.cs" />
+    <Compile Include="IHorarios.cs" />
     <Compile Include="IMedicos.cs" />
     <Compile Include="ITipos.cs" />
     <Compile Include="Medicos.svc.cs">

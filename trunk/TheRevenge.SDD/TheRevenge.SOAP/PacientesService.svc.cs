@@ -119,7 +119,7 @@ namespace TheRevenge.SOAP
 
             Paciente pacienteAModificar = new Paciente()
             {
-                Id_Paciente=_paciente.Id_Paciente,
+                IdPaciente=_paciente.IdPaciente,
                 Nombres = _paciente.Nombres,
                 Ape_Paterno = _paciente.Ape_Paterno,
                 Ape_Materno = _paciente.Ape_Materno,

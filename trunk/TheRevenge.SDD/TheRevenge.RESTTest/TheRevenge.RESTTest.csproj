@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCita.cs" />
     <Compile Include="TestCMP.cs" />
     <Compile Include="TestEspecialidad.cs" />
+    <Compile Include="TestHorario.cs" />
     <Compile Include="TestMedico.cs" />
   </ItemGroup>
   <ItemGroup>

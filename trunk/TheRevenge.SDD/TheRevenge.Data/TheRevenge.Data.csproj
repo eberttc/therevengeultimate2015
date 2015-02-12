@@ -85,9 +85,10 @@
     <EmbeddedResource Include="Dominio\Tipo_Documento.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Dominio\Especialidad.hbm.xml" />
-    <Content Include="Dominio\EstadoCita.hbm.xml" />
-    <Content Include="Dominio\Horario.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Cita.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Especialidad.hbm.xml" />
+    <EmbeddedResource Include="Dominio\EstadoCita.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Horario.hbm.xml" />
     <Content Include="Dominio\ReservaCita.hbm.xml" />
     <EmbeddedResource Include="Dominio\Medico.hbm.xml" />
   </ItemGroup>

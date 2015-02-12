@@ -30,6 +30,11 @@ namespace TheRevenge.ConsoleApp
                         {
                             dao.Crear(_cita);
                         }
+                        else
+                        { 
+                            dao.Modificar(_cita); 
+                        }
+
                         cola.Receive();
                     }
                 }

@@ -12,6 +12,7 @@
     <property name="FecAtencion" column="FEC_ATENCION"></property>
     <property name="Diagnostico" column="DIAGNOSTICO"></property>
     <property name="Observacion" column="OBSERVACION"></property>
+    <property name="IdEspecialidad" column="ID_ESPECIALIDAD"></property>
     <property name="IdPaciente" column="ID_PACIENTE"></property>
     <property name="IdEstado" column="ID_ESTADO"></property>
     <property name="IdMedico" column="ID_MEDICO"></property>

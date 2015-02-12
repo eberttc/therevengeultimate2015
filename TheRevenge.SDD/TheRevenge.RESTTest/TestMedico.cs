@@ -61,6 +61,7 @@ namespace TheRevenge.RESTTest
                 Assert.AreEqual("Medico ya existe... VERIFICAR.", Observacion.MensajeError);
             }
         }
+
         public void Post_CMPNoRegistrado()
         {
             try
@@ -103,6 +104,38 @@ namespace TheRevenge.RESTTest
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 Observacion Observacion = js.Deserialize<Observacion>(error);
                 Assert.AreEqual("Medico no registrado en CMP.", Observacion.MensajeError);
+            }
+        }
+        [TestMethod]
+        public void GetListXEsp()
+        {
+            try
+            {
+                string postdata = "{\"Especialidad\":2}";//JSON
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest
+                    .Create("http://localhost:1921/Medicos.svc/Medicos");
+                req.Method = "POST";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                HttpWebResponse response = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                List<Medico> MedicoLista = js.Deserialize<List<Medico>>(tramaJson);
+                Assert.IsTrue(MedicoLista.Count > 0);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Observacion Observacion = js.Deserialize<Observacion>(error);
+                Assert.AreEqual("La lista no devolvió datos.", Observacion.MensajeError);
             }
         }
         [TestMethod]

@@ -20,6 +20,8 @@ namespace TheRevenge.Data.Dominio
         [DataMember]
         public String Observacion { get; set; }
         [DataMember]
+        public int IdEspecialidad { get; set; }
+        [DataMember]
         public int IdPaciente { get; set; }
         [DataMember]
         public int IdEstado { get; set; }

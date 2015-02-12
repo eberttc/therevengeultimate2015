@@ -14,32 +14,87 @@ namespace TheRevenge.RESTTest
     public class TestCita
     {
         [TestMethod]
-        public void Post()
+        public void PostReservaSeleccionada()
         {
-            //--------post
-            //Prueba de creación de extintor vía HTTP POST
-            string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
-            byte[] data = Encoding.UTF8.GetBytes(postdata);
-            HttpWebRequest req = (HttpWebRequest)WebRequest
-                .Create("http://localhost:1921/Citas.svc/Citas");
-            req.Method = "POST";
-            req.ContentLength = data.Length;
-            req.ContentType = "application/json";
-            var reqStream = req.GetRequestStream();
-            reqStream.Write(data, 0, data.Length);
-            var res = (HttpWebResponse)req.GetResponse();
-            StreamReader reader = new StreamReader(res.GetResponseStream());
-            string citaJson = reader.ReadToEnd();
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            Cita citaCreado = js.Deserialize<Cita>(citaJson);
-            Assert.AreEqual("21/02/2015", citaCreado.FecAtencion);
-            Assert.AreEqual("Sano", citaCreado.Diagnostico);
-            Assert.AreEqual("", citaCreado.Observacion);
-            Assert.AreEqual(1, citaCreado.IdEspecialidad);
-            Assert.AreEqual(1, citaCreado.IdPaciente);
-            Assert.AreEqual(2, citaCreado.IdEstado);
-            Assert.AreEqual(3, citaCreado.IdMedico);
-            Assert.AreEqual(4, citaCreado.IdHorario);
+            try
+            {
+                //--------post
+                //Prueba de creación de extintor vía HTTP POST
+                string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest
+                    .Create("http://localhost:1921/Citas.svc/Citas");
+                req.Method = "POST";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                var res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string citaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cita citaCreado = js.Deserialize<Cita>(citaJson);
+                Assert.AreEqual("21/02/2015", citaCreado.FecAtencion);
+                Assert.AreEqual("Sano", citaCreado.Diagnostico);
+                Assert.AreEqual("", citaCreado.Observacion);
+                Assert.AreEqual(1, citaCreado.IdEspecialidad);
+                Assert.AreEqual(1, citaCreado.IdPaciente);
+                Assert.AreEqual(2, citaCreado.IdEstado);
+                Assert.AreEqual(3, citaCreado.IdMedico);
+                Assert.AreEqual(4, citaCreado.IdHorario);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Observacion Observacion = js.Deserialize<Observacion>(error);
+                Assert.AreEqual("Ya se cuenta con una reserva de cita en el horario seleccionado", Observacion.MensajeError);
+            }
+        }
+        [TestMethod]
+        public void PostMedicoSeleccionado()
+        {
+            try
+            {
+                //--------post
+                //Prueba de creación de extintor vía HTTP POST
+                string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest req = (HttpWebRequest)WebRequest
+                    .Create("http://localhost:1921/Citas.svc/Citas");
+                req.Method = "POST";
+                req.ContentLength = data.Length;
+                req.ContentType = "application/json";
+                var reqStream = req.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                var res = (HttpWebResponse)req.GetResponse();
+                StreamReader reader = new StreamReader(res.GetResponseStream());
+                string citaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cita citaCreado = js.Deserialize<Cita>(citaJson);
+                Assert.AreEqual("21/02/2015", citaCreado.FecAtencion);
+                Assert.AreEqual("Sano", citaCreado.Diagnostico);
+                Assert.AreEqual("", citaCreado.Observacion);
+                Assert.AreEqual(1, citaCreado.IdEspecialidad);
+                Assert.AreEqual(1, citaCreado.IdPaciente);
+                Assert.AreEqual(2, citaCreado.IdEstado);
+                Assert.AreEqual(3, citaCreado.IdMedico);
+                Assert.AreEqual(4, citaCreado.IdHorario);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Observacion Observacion = js.Deserialize<Observacion>(error);
+                Assert.AreEqual("El doctor no cuenta con este horario disponible", Observacion.MensajeError);
+            }
+            
         }
         [TestMethod]
         public void GetList()
@@ -88,31 +143,84 @@ namespace TheRevenge.RESTTest
             Assert.AreEqual(null, CitaCreado);
         }
         [TestMethod]
-        public void Put()
+        public void PutReservaSeleccionada()
         {
-            string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
-            byte[] data = Encoding.UTF8.GetBytes(postdata);
-            HttpWebRequest request = (HttpWebRequest)WebRequest
-               .Create("http://localhost:1921/Citas.svc/Citas");
-            request.Method = "PUT";
-            request.ContentLength = data.Length;
-            request.ContentType = "application/json";
-            var reqStream = request.GetRequestStream();
-            reqStream.Write(data, 0, data.Length);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            StreamReader reader = new StreamReader(response.GetResponseStream());
-            string tramaJson = reader.ReadToEnd();
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            Cita citaModif = js.Deserialize<Cita>(tramaJson);
-            Assert.AreEqual(1, citaModif.IdCita);
-            Assert.AreEqual("21/02/2015", citaModif.FecAtencion);
-            Assert.AreEqual("Sano", citaModif.Diagnostico);
-            Assert.AreEqual("", citaModif.Observacion);
-            Assert.AreEqual(1, citaModif.IdEspecialidad);
-            Assert.AreEqual(1, citaModif.IdPaciente);
-            Assert.AreEqual(2, citaModif.IdEstado);
-            Assert.AreEqual(3, citaModif.IdMedico);
-            Assert.AreEqual(4, citaModif.IdHorario);
+            try
+            {
+                string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest request = (HttpWebRequest)WebRequest
+                   .Create("http://localhost:1921/Citas.svc/Citas");
+                request.Method = "PUT";
+                request.ContentLength = data.Length;
+                request.ContentType = "application/json";
+                var reqStream = request.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cita citaModif = js.Deserialize<Cita>(tramaJson);
+                Assert.AreEqual(1, citaModif.IdCita);
+                Assert.AreEqual("21/02/2015", citaModif.FecAtencion);
+                Assert.AreEqual("Sano", citaModif.Diagnostico);
+                Assert.AreEqual("", citaModif.Observacion);
+                Assert.AreEqual(1, citaModif.IdEspecialidad);
+                Assert.AreEqual(1, citaModif.IdPaciente);
+                Assert.AreEqual(2, citaModif.IdEstado);
+                Assert.AreEqual(3, citaModif.IdMedico);
+                Assert.AreEqual(4, citaModif.IdHorario);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Observacion Observacion = js.Deserialize<Observacion>(error);
+                Assert.AreEqual("Ya se cuenta con una reserva de cita en el horario seleccionado", Observacion.MensajeError);
+            }
+        }
+        [TestMethod]
+        public void PutMedicoSeleccionado()
+        {
+            try
+            {
+                string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                byte[] data = Encoding.UTF8.GetBytes(postdata);
+                HttpWebRequest request = (HttpWebRequest)WebRequest
+                   .Create("http://localhost:1921/Citas.svc/Citas");
+                request.Method = "PUT";
+                request.ContentLength = data.Length;
+                request.ContentType = "application/json";
+                var reqStream = request.GetRequestStream();
+                reqStream.Write(data, 0, data.Length);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string tramaJson = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Cita citaModif = js.Deserialize<Cita>(tramaJson);
+                Assert.AreEqual(1, citaModif.IdCita);
+                Assert.AreEqual("21/02/2015", citaModif.FecAtencion);
+                Assert.AreEqual("Sano", citaModif.Diagnostico);
+                Assert.AreEqual("", citaModif.Observacion);
+                Assert.AreEqual(1, citaModif.IdEspecialidad);
+                Assert.AreEqual(1, citaModif.IdPaciente);
+                Assert.AreEqual(2, citaModif.IdEstado);
+                Assert.AreEqual(3, citaModif.IdMedico);
+                Assert.AreEqual(4, citaModif.IdHorario);
+            }
+            catch (WebException e)
+            {
+                HttpStatusCode code = ((HttpWebResponse)e.Response).StatusCode;
+                string message = ((HttpWebResponse)e.Response).StatusDescription;
+                StreamReader reader = new StreamReader(e.Response.GetResponseStream());
+                string error = reader.ReadToEnd();
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                Observacion Observacion = js.Deserialize<Observacion>(error);
+                Assert.AreEqual("El doctor no cuenta con este horario disponible", Observacion.MensajeError);
+            }
         }
     }
 }

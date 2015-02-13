@@ -69,6 +69,7 @@
     <Compile Include="Persistencia\MedicoDAO.cs" />
     <Compile Include="Persistencia\NHibernateHelper.cs" />
     <Compile Include="Persistencia\PacienteDAO.cs" />
+    <Compile Include="Persistencia\ReservaCitaDAO.cs" />
     <Compile Include="Persistencia\Tipo_DocumentoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,7 +90,9 @@
     <EmbeddedResource Include="Dominio\Especialidad.hbm.xml" />
     <EmbeddedResource Include="Dominio\EstadoCita.hbm.xml" />
     <EmbeddedResource Include="Dominio\Horario.hbm.xml" />
-    <Content Include="Dominio\ReservaCita.hbm.xml" />
+    <Content Include="Dominio\ReservaCita.hbm.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <EmbeddedResource Include="Dominio\Medico.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

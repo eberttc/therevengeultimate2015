@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="TheRevenge.Data"
+                   namespace="TheRevenge.Data.Dominio"
+                   default-lazy="false">
+	<class name="Cita" table="CITA">
+		<id name="IdCita" column="ID_CITA">
+			<!--generator class="increment"></generator-->
+			<generator class="identity"></generator>
+		</id>
+		<property name="FecAtencion" column="FEC_ATENCION"></property>
+		<property name="Diagnostico" column="DIAGNOSTICO"></property>
+		<property name="Observaciones" column="OBSERVACION"></property>
+	</class>
+</hibernate-mapping>

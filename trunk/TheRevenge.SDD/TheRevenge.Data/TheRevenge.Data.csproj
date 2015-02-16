@@ -49,6 +49,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\AtencionCita.cs" />
     <Compile Include="Dominio\Cita.cs" />
     <Compile Include="Dominio\Cmp.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
@@ -86,6 +87,7 @@
     <EmbeddedResource Include="Dominio\Tipo_Documento.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dominio\AtencionCita.hbm.xml" />
     <EmbeddedResource Include="Dominio\Cita.hbm.xml" />
     <EmbeddedResource Include="Dominio\Especialidad.hbm.xml" />
     <EmbeddedResource Include="Dominio\EstadoCita.hbm.xml" />

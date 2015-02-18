@@ -94,12 +94,12 @@ namespace TheRevenge.SOAP
                 Correo = _paciente.Correo
             };
             ICollection<Paciente> listaPaciente = PacienteDAO.ListarPacienteFiltros(pacienteABuscar);
-            if (listaPaciente.Count() == 0)
+            if (listaPaciente.Count() >= 1)
                 throw new FaultException<Observacion>(
                     new Observacion()
                     {
                         CodigoError = 4,
-                        MensajeError = "El paciente ingresado no se encuentra registrado."
+                        MensajeError = "Paciente ya existe… VERIFICAR"
                     }, new FaultReason("SOAP_UpdateFail"));
 
             Paciente pacienteAComparar = new Paciente()
@@ -114,7 +114,7 @@ namespace TheRevenge.SOAP
                     new Observacion()
                     {
                         CodigoError = 5,
-                        MensajeError = "Los datos del paciente ingresado ya se encuentran registrados."
+                        MensajeError = "Revisar Homonimia o paciente ya REGISTRADO"
                     }, new FaultReason("SOAP_2_UpdateFail"));
 
             Paciente pacienteAModificar = new Paciente()

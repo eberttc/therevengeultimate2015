@@ -64,9 +64,11 @@ namespace TheRevenge.REST
             }
         }
 
-        public Cita ObtenerCita(string IdCita)
-        {
-            return dao.Obtener(Convert.ToInt16(IdCita));
+        public Cita ObtenerCita(string IdCita)     
+        {            
+            {
+                return dao.Obtener(Convert.ToInt16(IdCita));            
+            }          
         }
 
         public Cita ModificarCita(Cita citaAModificar)

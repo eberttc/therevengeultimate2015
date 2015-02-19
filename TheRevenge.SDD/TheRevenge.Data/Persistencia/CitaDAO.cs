@@ -39,5 +39,17 @@ namespace TheRevenge.Data.Persistencia
                 return cita;
             }
         }
+
+        //public ICollection<Cita> ReservaNoExiste(int Id)
+        //{
+        //    using (ISession sesion = NHibernateHelper.ObtenerSesion())
+        //    {
+        //        ICollection<Cita> cita = sesion
+        //            .CreateCriteria(typeof(Cita))
+        //            .Add(Restrictions.Eq("IdCita", Id.IdCita))                   
+        //            .List<Cita>();
+        //        return cita;
+        //    }
+        //}
     }
 }

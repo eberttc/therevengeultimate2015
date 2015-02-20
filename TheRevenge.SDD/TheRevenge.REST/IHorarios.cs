@@ -15,13 +15,13 @@ namespace TheRevenge.REST
     {
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "Horarios", ResponseFormat = WebMessageFormat.Json)]
-        Horario CrearHorario(Horario tipoACrear);
+        Horario CrearHorario(Horario horarioACrear);
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Horarios/{IdHorario}", ResponseFormat = WebMessageFormat.Json)]
         Horario ObtenerHorario(string IdHorario);
         [OperationContract]
         [WebInvoke(Method = "PUT", UriTemplate = "Horarios", ResponseFormat = WebMessageFormat.Json)]
-        Horario ModificarHorario(Horario tipoAModificar);
+        Horario ModificarHorario(Horario horarioAModificar);
         [OperationContract]
         //[WebInvoke(Method = "DELETE", UriTemplate = "Horarioes/{codigo}", ResponseFormat = WebMessageFormat.Json)]
         [WebInvoke(Method = "DELETE", UriTemplate = "Horarios/{IdHorario}")]

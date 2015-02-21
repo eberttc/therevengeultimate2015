@@ -134,7 +134,9 @@ public class MedicoServlet extends HttpServlet {
 				
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				observacion=e.getMessage();
+				mensaje="3";
+				output=bean;
 			}
 			
 		}else if(accion.equals("modificar")){

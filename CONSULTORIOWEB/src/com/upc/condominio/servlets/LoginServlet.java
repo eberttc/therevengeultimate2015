@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import pe.com.consultorio.ws.Paciente;
+
 import com.upc.condominio.exceptions.DAOExcepcion;
 import com.upc.condominio.exceptions.LoginExcepcion;
 import com.upc.condominio.modelo.Usuario;
 import com.upc.condominio.negocio.GestionUsuarios;
+import com.upc.condominio.servicios.EyeSuiteWrapperService;
 
 
 /**
@@ -57,14 +60,43 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-
-		String usuario = request.getParameter("txtUser");
-		String clave = request.getParameter("txtPass");
-		String tipoUsuraio= request.getParameter("hidTipo");;
 		
-		System.out.println("usuario"+usuario);
-		System.out.println("clave"+clave);
-		System.out.println("tipoUsuraio"+tipoUsuraio);
+		//String usuario = request.getParameter("txtUser");
+		// no es correo ? 
+		String correo = request.getParameter("txtUser");
+		String clave = request.getParameter("txtPass");
+		System.out.println("clave :> " + clave);
+		String tipoUsuraio= request.getParameter("hidTipo");
+		Boolean usuarioEncontrado = Boolean.FALSE;
+		
+		//admin ? 
+		if(tipoUsuraio.equals("A")){
+			
+			usuarioEncontrado = Boolean.TRUE;
+		}
+		
+		//supongo que es para pacientes
+		if(tipoUsuraio.equals("R")){
+			List<Paciente> pacientes = EyeSuiteWrapperService.getInstance().obtenerServicioPaciente().listarPaciente().getPaciente();
+			for (Paciente paciente : pacientes) {
+				System.out.println("paciente : " + paciente.getCorreo() + " clave : " + paciente.getPassword());
+				if(paciente.getCorreo().equals(correo) && paciente.getPassword().equals(clave)){
+					usuarioEncontrado =  Boolean.TRUE;
+					request.getSession(false).setAttribute("USUARIO", paciente );
+					break;
+				}
+			}
+			
+			//falta para el medico !!
+			//llamar al rest
+		}
+		
+		
+		
+		
+		System.out.println("correo "+correo); 
+		System.out.println("clave "+clave);
+		System.out.println("tipoUsuraio "+tipoUsuraio);
 		
 		//GestionUsuarios negocio = new GestionUsuarios();
 
@@ -74,9 +106,19 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 			HttpSession session = request.getSession();
 			session.setAttribute("USUARIO_ACTUAL", vo);
 			session.setAttribute("MENU", menu);*/
-			RequestDispatcher rd = request.getRequestDispatcher("/pages/principal.jsp");
+			RequestDispatcher rd = null;
+			if(usuarioEncontrado){				
+			rd = request.getRequestDispatcher("/pages/principal.jsp");			
+			}else{
+				
+				request.setAttribute("ERROR", "USUARIO NO EXISTE ");
+				rd = request.getRequestDispatcher("/");
+			}
+			
 			rd.forward(request, response);
-			return;
+			
+			
+			
 		/*} catch (DAOExcepcion e) {
 			request.setAttribute("MENSAJE", "Hubo un error al procesar la operación: " + e.getMessage());	
 		} catch (LoginExcepcion e) {			

@@ -133,8 +133,7 @@
 		          		 </div>
 		          		 
 		          	</div>
-           
-          		 
+                     		 
           		 
           		 <div class="form-group">
           		 		<div class="row">
@@ -214,9 +213,10 @@
 				              <div class="col-sm-4">
 				              	<select class="form-control input-sm"  name="cboEspec"  id="idEspec">
 				              			<option value="0" >seleccione---</option>
-				              			<option value="1" <c:if test="${beanMedico.especialidad==1}">selected</c:if>>1</option>
-				              			<option value="2" <c:if test="${beanMedico.especialidad==2}">selected</c:if>>2</option>
-				              			<option value="3" <c:if test="${beanMedico.especialidad==3}">selected</c:if>>3</option>			              	
+				              			<option value="1" <c:if test="${beanMedico.especialidad==1}">selected</c:if>>Consulta Oftalmológica Especializada </option>
+				              			<option value="2" <c:if test="${beanMedico.especialidad==2}">selected</c:if>>Consulta Oftalmológica Integral</option>
+				              			<option value="3" <c:if test="${beanMedico.especialidad==3}">selected</c:if>>Farmacia Oftalmológica</option>
+				              			<option value="4" <c:if test="${beanMedico.especialidad==3}">selected</c:if>>Servicio de Óptica</option>			              	
 				              	</select>
 				              </div>
 			             </div>

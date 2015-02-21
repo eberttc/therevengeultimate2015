@@ -39,5 +39,10 @@ namespace TheRevenge.REST
                 return null;
             }
         }
+
+        public void DoWork()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

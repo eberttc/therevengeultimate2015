@@ -21,6 +21,7 @@ namespace TheRevenge.Data.Persistencia
                     .Add(Restrictions.Eq("IdHorario", _Cita.IdHorario))
                     .Add(Restrictions.Eq("IdEstado", _Cita.IdEstado))
                     .Add(Restrictions.Eq("IdMedico", _Cita.IdMedico))
+                    .Add(Restrictions.Eq("FecReserva", _Cita.FecReserva))
                     .List<Cita>();
                 return cita;
             }
@@ -35,6 +36,7 @@ namespace TheRevenge.Data.Persistencia
                     .Add(Restrictions.Eq("IdHorario", _Cita.IdHorario))
                     .Add(Restrictions.Eq("IdEstado", _Cita.IdEstado))
                     .Add(Restrictions.Eq("IdPaciente", _Cita.IdPaciente))
+                    .Add(Restrictions.Eq("FecReserva", _Cita.FecReserva))
                     .List<Cita>();
                 return cita;
             }

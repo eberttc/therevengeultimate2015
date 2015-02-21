@@ -10,14 +10,14 @@ namespace TheRevenge.Data.Dominio
     public class Cita
     {
         [DataMember ( IsRequired = false )]
-        public int IdCita { get; set; }
-        [DataMember ( IsRequired = false )]
-        public DateTime FecReserva { get; set; }
+        public int IdCita { get; set; }      
         [DataMember]
+        public String FecReserva { get; set; }
+        [DataMember (IsRequired = false)]
         public String FecAtencion { get; set; }
-        [DataMember]
+        [DataMember (IsRequired = false)]
         public String Diagnostico { get; set; }
-        [DataMember]
+        [DataMember(IsRequired = false)]
         public String Observacion { get; set; }
         [DataMember]
         public int IdEspecialidad { get; set; }

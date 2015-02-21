@@ -29,7 +29,7 @@ namespace TheRevenge.REST
         [WebInvoke(Method = "GET", UriTemplate = "Medicos", ResponseFormat = WebMessageFormat.Json)]
         List<Medico> ListarMedicos();
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "Medicos/{Especialidad}", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "Medicos?Especialidades={Especialidad}", ResponseFormat = WebMessageFormat.Json)]
         List<Medico> BuscarMedicosPorEsp(string Especialidad);
     }
 }

@@ -29,7 +29,7 @@ namespace TheRevenge.Data.Persistencia
             {
                 ICollection<Medico> persona = sesion
                     .CreateCriteria(typeof(Medico))
-                    .Add(Restrictions.Eq("Especialidad", Especialidad))
+                    .Add(Restrictions.Eq("Especialidad", Convert.ToInt32(Especialidad)))
                     .List<Medico>();
                 return persona;
             }

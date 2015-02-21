@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse"
+       name="EmailNotificationProxy"
+       transports="https http"
+       startOnLoad="true"
+       trace="disable">
+   <description/>
+   <target>
+      <inSequence>
+         <log level="custom">
+            <property name="Test" value="Test_value"/>
+         </log>
+         <log level="full"/>
+         <property name="messageType"
+                   value="text/html"
+                   scope="axis2"
+                   type="STRING"/>
+         <property name="ContentType"
+                   value="text/html"
+                   scope="axis2"
+                   type="STRING"/>
+         <property name="OUT_ONLY" value="true" scope="default" type="STRING"/>
+         <property name="FORCE_SC_ACCEPTED"
+                   value="true"
+                   scope="axis2"
+                   type="STRING"/>
+         <property xmlns:p="http://bankingsample/EmailNotificationProxy/"
+                   name="email"
+                   expression="//email/text()"
+                   scope="default"
+                   type="STRING"/>
+         <header name="To"
+                 scope="default"
+                 expression="fn:concat('mailto:',get-property('email'))"/>
+         <switch xmlns:p="http://bankingsample/EmailNotificationProxy/"
+                 source="//templateId/text()">
+            <case regex="Creacion">
+               <property name="Subject" value="New User" scope="transport" type="STRING"/>
+               <xslt key="conf:/transform/email-transform-created.xslt"/>
+            </case>
+            <case regex="Reserva">
+               <property name="Subject" value="RESERVA" scope="transport" type="STRING"/>
+               <xslt key="conf:/transform/email-transform-reserva.xslt"/>
+            </case>
+         </switch>
+         <send/>
+      </inSequence>
+      <outSequence/>
+      <faultSequence/>
+   </target>
+   <publishWSDL key="conf:/EmailNotificationProxy.wsdl"/>
+</proxy>

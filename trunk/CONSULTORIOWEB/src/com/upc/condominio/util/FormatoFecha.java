@@ -178,6 +178,19 @@ public class FormatoFecha implements Serializable {
 		return dFecha;
 	}
 	
+	public static Date stringToSqlDateTime(String fecha){
+		Date dFecha = null;
+		if (fecha != null && fecha.length() == 10){
+		    try{
+				long lTime = new SimpleDateFormat("dd/MM/yyyy").parse(fecha).getTime();
+				dFecha = new Date(lTime);
+		    }catch(Exception e){
+		        return null;
+		    }
+		}
+		return dFecha;
+	}
+	
 	/**
 	 * @param fecha: parametro de entrada de tipo String dd/mm/yyyy ejemplo [10/02/2006] 
 	 * @return retorna un obejeto de tipo java.sql.Date o un objeto nulo

@@ -123,11 +123,17 @@ namespace TheRevenge.REST
             return dao.ListarTodos().ToList();
         }
 
-        public List<CitaDescrita> ObtenerCitaDescrita(String IdPaciente)
+        public List<CitaDescrita> ObtenerCitaDescrita(String IdCita)
         {
             {
-                return dao.BuscarCitaDescritaPorPaciente(IdPaciente).ToList();
+                return dao.BuscarCitaDescritaPorIdCita(IdCita).ToList();
             }
+        }
+
+
+        public List<CitaDescrita> ObtenerCitaDescritaPaciente(string IdPaciente)
+        {
+            return dao.BuscarCitaDescritaPorPaciente(IdPaciente).ToList();
         }
     }
 }

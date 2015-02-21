@@ -82,16 +82,14 @@
         	</div>
         </c:if>
         <input type="hidden"  value="R" name="hidTipo" id="hidTipo"/>
-        <input type="text"  name="txtUser" id="txtUser" class="form-control" placeholder="Usuario">
-        <input type="password" name="txtPass" id="txtPass" class="form-control"  placeholder="Password">
+        <input type="text" value="carlos10@gmail.com" name="txtUser" id="txtUser" class="form-control" placeholder="Usuario">
+        <input type="password" name="txtPass" id="txtPass" class="form-control" value="123456" placeholder="Password">
         <label class="checkbox">
           <input type="checkbox" name="chkUsuario" id="chkUsuario"> Si eres Administrativo selecciona esta opcion
         </label>
         	<input class="btn btn-lg btn-primary btn-block" id="btningresar" value ="Entrar" type="submit"  />
         	
-		<c:if test="${ERROR != null}">
-			<label> ${ERROR} </label>
-		</c:if>
+		
         
       </form>
 	  <c:remove var="MENSAJE" scope="request" />

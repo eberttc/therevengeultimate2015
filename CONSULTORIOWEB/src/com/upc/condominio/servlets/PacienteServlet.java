@@ -9,15 +9,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.soap.SOAPFaultException;
 
 import org.apache.commons.lang3.StringUtils;
 
-import pe.com.consultorio.ws.ArrayOfPaciente;
 import pe.com.consultorio.ws.IPacientesServiceActualizarPacienteObservacionFaultFaultMessage;
 import pe.com.consultorio.ws.IPacientesServiceCrearPacienteObservacionFaultFaultMessage;
 import pe.com.consultorio.ws.Paciente;
-import pe.com.consultorio.ws.PacientesService;
 
 import com.upc.condominio.forms.PacienteForm;
 import com.upc.condominio.servicios.EyeSuiteWrapperService;
@@ -28,7 +25,7 @@ import com.upc.condominio.util.EyeSuiteParseException;
  */
 @WebServlet("/PacienteServlet")
 public class PacienteServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 	
 	private static final String PACIENTE_PAGE_LIST="pages/pacienteLista.jsp";
 	private static final String PACIENTE_PAGE_FORM = "pages/pacienteForm.jsp";
@@ -55,11 +52,11 @@ public class PacienteServlet extends HttpServlet {
 	    
 	    RequestDispatcher rd = null;
 	    PacienteForm form = new PacienteForm();
-	    if (target.equals("pacientes")){	    	    	
+	    if (target.equals("pacientes")){
+	    	
 			List<Paciente> pacientes = EyeSuiteWrapperService.getInstance().obtenerServicioPaciente().listarPaciente().getPaciente();
 			request.setAttribute("listaPacientes", pacientes);			
-			rd = request.getRequestDispatcher(PACIENTE_PAGE_LIST);
-			
+			rd = request.getRequestDispatcher(PACIENTE_PAGE_LIST);			
 	    }else if (target.equals("formulario")){
 	    	String action= "editar";
 	    	String idParametro = request.getParameter("param");
@@ -134,8 +131,4 @@ public class PacienteServlet extends HttpServlet {
 	private void populateData(HttpServletRequest request){
 		request.setAttribute("tipos_documento", EyeSuiteWrapperService.getInstance().obtenerServicioTipoDocumento().listarTipoDocumento().getTipoDocumento());
 	}
-	
-
 }
-
-

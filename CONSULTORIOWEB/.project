@@ -3,7 +3,6 @@
 	<name>CONSULTORIOWEB</name>
 	<comment></comment>
 	<projects>
-		<project>CONSULTORIO-WS-CLIENT</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

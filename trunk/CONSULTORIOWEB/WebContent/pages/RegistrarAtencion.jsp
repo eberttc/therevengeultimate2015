@@ -128,7 +128,7 @@
 			              </div>
 			              
 			               <div class="col-sm-6">
-			              		 <input class="btn btn-primary" type="button"  value="BUSCAR">			              			             					           
+			              		 <input class="btn btn-primary" type="button" onclick="buscarCita();"  value="BUSCAR">			              			             					           
 			              
 			              </div>
 			             
@@ -261,5 +261,20 @@
        </div>     
        
      </div>
+     
+<script type="text/javascript">
+
+	function buscarCita(){
+		var idCita = $('#idcita').val();
+		//cambiar ruta !
+		var urlRest = "http://localhost:1921/Citas.svc/Cita/";
+		
+		$.get(urlRest,{codigo : idCita },function(data){
+			console.log("data es : " + data);
+		});
+		
+	}
+
+</script>     
 </body>
 </html>

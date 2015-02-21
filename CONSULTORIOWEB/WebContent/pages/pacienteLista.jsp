@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.upc.consultorio.ws.proxy.Paciente" %>    
+<%@ page import="pe.com.consultorio.ws.Paciente" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,9 +71,9 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 					<% List<Paciente> pacientes = (List<Paciente>)request.getAttribute("listaPacientes"); %>
 					<% for(Paciente paciente : pacientes) { %>
 						<tr>							
-							<td><%= paciente.getNroDocumento().getValue() %></td>
-							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/carlos-slim-helu_50x50.jpg" alt=""> <%= paciente.getNombres().getValue() %> </td>														
-							<td><%=paciente.getDireccion().getValue() %></td>							
+							<td><%= paciente.getNroDocumento() %></td>
+							<td><img class="img-rounded" src="http://i.forbesimg.com/media/lists/people/carlos-slim-helu_50x50.jpg" alt=""> <%= paciente.getNombres() + " " + paciente.getApePaterno() + " " + paciente.getApeMaterno() %> </td>														
+							<td><%=paciente.getDireccion() %></td>							
 								<td>
                             <div class="row">
                             <div class="col-lg-12">

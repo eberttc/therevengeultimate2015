@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.upc.condominio.forms.PacienteForm" %> 
+<%@ page import="com.upc.condominio.forms.PacienteForm" %>
+<%@ page import="pe.com.consultorio.ws.TipoDocumento" %>
+<%@ page import="java.util.List" %>    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +27,9 @@
 	<title>Consultorio</title>
 </head>
 <%
-	/**String mensaje=request.getAttribute("mensaje")==null?"":request.getAttribute("mensaje").toString();
-	String vreturn=request.getAttribute("vreturn")==null?"":request.getAttribute("vreturn").toString();
-String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.getAttribute("txtTipoDocumento").toString();**/	
+	
 	PacienteForm form = (PacienteForm)request.getAttribute("pacienteForm");
+	List<TipoDocumento> listaDocumento = (List<TipoDocumento>)request.getAttribute("tipos_documento"); 
 	
 %>
 <body>	
@@ -82,13 +83,31 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 						</div>
 						<label class="col-sm-2 control-label">Sexo</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_sexo"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for last name" value="<%=form.getSexo() %>">
+						<select class="form-control" name="_sexo"  data-toggle="tooltip" data-placement="bottom">
+						<% if(form.getSexo().equals("F")) {%>
+								<option selected="selected" value="F">Femenino</option>
+								<option  value="M">M</option>
+						<% }else{ %>											
+								<option selected="selected" value="M">Masculino</option>
+								<option  value="F">F</option>						
+						<% } %>
+						</select>							
 						</div>
 					</div>
                         <div class="form-group">
 						<label class="col-sm-2 control-label">Tipo de Documento</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="_tipoDocumento"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getTipoDocumento() %>" >
+							<select class="form-control" name="_tipoDocumento"  data-toggle="tooltip" data-placement="bottom">
+							<% for (TipoDocumento item : listaDocumento) {%>
+								<% if(item.getIDTipoDoc().toString().equals(form.getTipoDocumento())) {%>
+								<option selected="selected" value="<%=item.getIDTipoDoc()%>"><%= item.getDescripcion() %></option>
+								<% } else{ %>								
+								<option  value="<%=item.getIDTipoDoc()%>"><%= item.getDescripcion() %></option>
+								<% } %>
+							<%} %>
+							</select>
+							
+							<!-- <input type="text" class="form-control" name="_tipoDocumento"  data-toggle="tooltip" data-placement="bottom" title="Tooltip for name" value="<%=form.getTipoDocumento() %>" >-->
 						</div>
 						<label class="col-sm-2 control-label">Numero de Documento</label>
 						<div class="col-sm-4">
@@ -102,7 +121,7 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 							
 						</div>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" value="<%=form.getCorreo() %>" >							
+							<input type="text" class="form-control" name="_correo_dup" value="<%=form.getCorreo() %>" >							
 						</div>
 						<label class="col-sm-2 control-label">Direccion</label>
 						<div class="col-sm-4">
@@ -116,7 +135,7 @@ String tipoDocumento=request.getAttribute("txtTipoDocumento")==null?"":request.g
 						</div>
 					<label class="col-sm-2 control-label">Fecha de Nacimiento</label>
 						<div class="col-sm-4">
-							<input type="text" id="input_date" name="_fechaNacimiento" class="form-control" value="<%=form.getFechaNacimiento() %>" >
+							<input type="text" id="input_date" name="_fechaNacimiento" class="form-control" readonly="readonly" value="<%=form.getFechaNacimiento() %>" >
 							<span class="fa fa-calendar txt-danger form-control-feedback"></span>
 						</div>
 					</div>

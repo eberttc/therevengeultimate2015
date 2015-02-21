@@ -1,0 +1,85 @@
+   <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                        xmlns:tns="http://bankingsample/EmailNotificationProxy/"
+                        xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                        name="EmailNotificationProxy"
+                        targetNamespace="http://bankingsample/EmailNotificationProxy/">
+         <wsdl:types>
+            <xsd:schema targetNamespace="http://bankingsample/EmailNotificationProxy/">
+               <xsd:element name="notifyViaEmailUsuario">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="templateId" type="xsd:string"></xsd:element>
+                        <xsd:element name="name" type="xsd:string"/>
+                        <xsd:element name="email" type="xsd:string"/>
+                        <xsd:element name="dni" type="xsd:string"/>						                   
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+			   <xsd:element name="notifyViaEmailReserva">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="templateId" type="xsd:string"></xsd:element>
+                        <xsd:element name="name" 	   type="xsd:string"/>
+                        <xsd:element name="email"      type="xsd:string"/>
+                        <xsd:element name="codigo"     type="xsd:string"/>						                   
+						<xsd:element name="fecha"      type="xsd:string"/>
+						<xsd:element name="especialidad" type="xsd:string"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="notifyViaEmailResponse">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="out" type="xsd:string"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:schema>
+         </wsdl:types>
+         <wsdl:message name="notifyViaEmailReservaRequest1">
+            <wsdl:part element="tns:notifyViaEmailReserva" name="parameters"/>
+         </wsdl:message>
+		  <wsdl:message name="notifyViaEmailUsuarioRequest2">
+            <wsdl:part element="tns:notifyViaEmailUsuario" name="parameters"/>
+         </wsdl:message>
+         <wsdl:message name="notifyViaEmailResponse">
+            <wsdl:part element="tns:notifyViaEmailResponse" name="parameters"/>
+         </wsdl:message>
+         <wsdl:portType name="EmailNotificationProxy">
+            <wsdl:operation name="notifyViaEmailReserva">
+               <wsdl:input message="tns:notifyViaEmailReservaRequest1" wsaw:Action="urn:notifyViaEmailReserva"/>
+            </wsdl:operation>
+			<wsdl:operation name="notifyViaEmailUsuario">
+               <wsdl:input message="tns:notifyViaEmailUsuarioRequest2" wsaw:Action="urn:notifyViaEmailUsuario"/>
+            </wsdl:operation>
+         </wsdl:portType>
+         <wsdl:binding name="EmailNotificationProxySOAP" type="tns:EmailNotificationProxy">
+            <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <wsdl:operation name="notifyViaEmailReserva">
+               <soap:operation soapAction="urn:notifyViaEmailReserva" style="document"/>
+               <wsdl:input>
+                  <soap:body use="literal"/>
+               </wsdl:input>
+               <wsdl:output>
+                  <soap:body use="literal"/>
+               </wsdl:output>
+            </wsdl:operation>
+			 <wsdl:operation name="notifyViaEmailUsuario">
+               <soap:operation soapAction="urn:notifyViaEmailUsuario" style="document"/>
+               <wsdl:input>
+                  <soap:body use="literal"/>
+               </wsdl:input>
+               <wsdl:output>
+                  <soap:body use="literal"/>
+               </wsdl:output>
+            </wsdl:operation>
+         </wsdl:binding>
+         <wsdl:service name="EmailNotificationProxy">
+            <wsdl:port binding="tns:EmailNotificationProxySOAP"
+                       name="EmailNotificationProxySOAP">
+               <soap:address location="http://localhost:8281/services/EmailNotificationProxy"/>
+            </wsdl:port>
+         </wsdl:service>
+      </wsdl:definitions>

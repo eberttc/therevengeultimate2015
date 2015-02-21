@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Dominio\AtencionCita.cs" />
     <Compile Include="Dominio\Cita.cs" />
+    <Compile Include="Dominio\CitaDescrita.cs" />
     <Compile Include="Dominio\Cmp.cs" />
     <Compile Include="Dominio\Especialidad.cs" />
     <Compile Include="Dominio\EstadoCita.cs" />

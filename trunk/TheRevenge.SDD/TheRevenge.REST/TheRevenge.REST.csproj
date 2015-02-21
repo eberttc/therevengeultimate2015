@@ -59,7 +59,20 @@
     <EmbeddedResource Include="Especialidades.svc" />
     <Content Include="Horarios.svc" />
     <Content Include="Medicos.svc" />
-    <Content Include="ReservaCitas.svc" />
+    <None Include="Properties\DataSources\TheRevenge.Data.Dominio.Paciente.datasource" />
+    <None Include="Service References\NotificacionService\configuration91.svcinfo" />
+    <None Include="Service References\NotificacionService\configuration.svcinfo" />
+    <None Include="Service References\NotificacionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PacienteService\PacientesService.disco" />
+    <None Include="Service References\PacienteService\configuration91.svcinfo" />
+    <None Include="Service References\PacienteService\configuration.svcinfo" />
+    <None Include="Service References\PacienteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Tipos.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -68,6 +81,16 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Service References\PacienteService\PacientesService.wsdl" />
+    <None Include="Service References\PacienteService\PacientesService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PacienteService\PacientesService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PacienteService\PacientesService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Citas.svc.cs">
@@ -94,8 +117,15 @@
       <DependentUpon>Medicos.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReservaCitas.svc.cs">
-      <DependentUpon>ReservaCitas.svc</DependentUpon>
+    <Compile Include="Service References\NotificacionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PacienteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Tipos.svc.cs">
       <DependentUpon>Tipos.svc</DependentUpon>
@@ -112,6 +142,13 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\NotificacionService\" />
+    <WCFMetadataStorage Include="Service References\PacienteService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NotificacionService\EmailNotificationProxy.wsdl" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

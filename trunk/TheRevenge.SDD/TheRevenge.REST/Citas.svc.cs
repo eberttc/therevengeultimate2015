@@ -30,8 +30,22 @@ namespace TheRevenge.REST
                     ICollection<Cita> _listaPacCita = dao.BuscarPacienteConCita(citaACrear).ToList();
                     if (_listaPacCita.Count() == 0)
                     {
-                        
-                        return dao.Crear(citaACrear);
+                        Cita beansalida=null;
+
+                        try
+                        {
+                            beansalida=dao.Crear(citaACrear);
+                            
+                            PacienteService.PacientesServiceClient clientPaciente=new PacienteService.PacientesServiceClient();
+                            Paciente beanPac=clientPaciente.consultarPaciente(citaACrear.IdPaciente);
+                            NotificacionService.EmailNotificationProxyPortTypeClient e = new NotificacionService.EmailNotificationProxyPortTypeClient();
+                            e.notifyViaEmailReserva("Reserva", beanPac.Nombres, beanPac.Correo, citaACrear.IdCita.ToString(), citaACrear.FecReserva, citaACrear.IdEspecialidad.ToString());
+
+                        }
+                        catch (Exception)
+                        {
+                        }
+                        return beansalida;
                     }
                     else
                     {

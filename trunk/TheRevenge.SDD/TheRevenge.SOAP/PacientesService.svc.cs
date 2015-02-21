@@ -69,6 +69,15 @@ namespace TheRevenge.SOAP
                 Password = _paciente.Password
             };
 
+            try
+            {
+                //Notificacion.EmailNotificationProxyPortTypeClient e = new Notificacion.EmailNotificationProxyPortTypeClient();
+               // e.notifyViaEmailUsuario("Creacion", PacienteACrear.Nombres, PacienteACrear.Correo, PacienteACrear.Nro_Documento);
+              
+            }
+            catch (Exception)
+            {
+            }
             return PacienteDAO.Crear(PacienteACrear);
         }
 

@@ -65,11 +65,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceMedico\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\ServicePaciente\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +88,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\TheRevenge.Data.Dominio.Medico.datasource" />
+    <None Include="Properties\DataSources\TheRevenge.Data.Dominio.Paciente.datasource" />
     <None Include="Service References\ServiceCmp\CmpesService.wsdl" />
     <None Include="Service References\ServiceCmp\CmpesService.xsd">
       <SubType>Designer</SubType>
@@ -132,16 +128,6 @@
     <None Include="Service References\ServiceHorario\TheRevenge.SOAPTest.ServiceHorario.Horario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceMedico\MedicosService.wsdl" />
-    <None Include="Service References\ServiceMedico\MedicosService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceMedico\MedicosService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceMedico\MedicosService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServicePaciente\PacientesService.wsdl" />
     <None Include="Service References\ServicePaciente\PacientesService.xsd">
       <SubType>Designer</SubType>
@@ -151,9 +137,6 @@
     </None>
     <None Include="Service References\ServicePaciente\PacientesService2.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServicePaciente\TheRevenge.SOAPTest.ServicePaciente.Paciente.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceTipoDoc\TheRevenge.SOAPTest.ServiceTipoDoc.Tipo_Documento.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -173,7 +156,6 @@
     <WCFMetadataStorage Include="Service References\ServiceCmp\" />
     <WCFMetadataStorage Include="Service References\ServiceEstadoCita\" />
     <WCFMetadataStorage Include="Service References\ServiceHorario\" />
-    <WCFMetadataStorage Include="Service References\ServiceMedico\" />
     <WCFMetadataStorage Include="Service References\ServicePaciente\" />
     <WCFMetadataStorage Include="Service References\ServiceTipoDoc\" />
   </ItemGroup>
@@ -188,21 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceCmp\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePaciente\PacientesService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePaciente\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePaciente\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServicePaciente\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -229,18 +196,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceMedico\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceMedico\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceMedico\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ServiceHorario\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +215,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceEstadoCita\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePaciente\PacientesService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePaciente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePaciente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePaciente\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -23,7 +23,7 @@ namespace TheRevenge.RESTTest
             {
                 //--------post
                 //Prueba de creación de extintor vía HTTP POST
-                string postdata = "{\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"46904157\",\"Cmp\":12,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Telefono\":\"3270317\",\"Correo\":\"yolvi13@gmail.com\",\"Password\":\"yolvi\"}";//JSON
+                string postdata = "{\"Nombre\":\"Yolvi\",\"Ape_Paterno\":\"Escobar\",\"Ape_Materno\":\"Vega\",\"Sexo\":\"M\",\"Tipo_Documento\":1,\"Nro_Documento\":\"23\",\"Cmp\":1,\"Especialidad\":2,\"Direccion\":\"Jr. Hoyle P.\",\"Telefono\":\"3270317\",\"Correo\":\"EBERT@HOMTAIL.COM\",\"Password\":\"yolvi\"}";//JSON
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
                     .Create("http://localhost:1921/Medicos.svc/Medicos");

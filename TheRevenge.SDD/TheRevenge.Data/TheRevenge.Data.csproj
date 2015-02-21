@@ -89,7 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dominio\AtencionCita.hbm.xml" />
-    <EmbeddedResource Include="Dominio\Cita.hbm.xml" />
+    <EmbeddedResource Include="Dominio\Cita.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dominio\Especialidad.hbm.xml" />
     <EmbeddedResource Include="Dominio\EstadoCita.hbm.xml" />
     <EmbeddedResource Include="Dominio\Horario.hbm.xml" />

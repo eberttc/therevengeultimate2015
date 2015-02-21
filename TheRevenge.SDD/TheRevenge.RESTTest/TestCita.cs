@@ -61,7 +61,7 @@ namespace TheRevenge.RESTTest
             {
                 //--------post
                 //Prueba de creación de extintor vía HTTP POST
-                string postdata = "{\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                string postdata = "{\"FecReserva\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest req = (HttpWebRequest)WebRequest
                     .Create("http://localhost:1921/Citas.svc/Citas");
@@ -147,7 +147,7 @@ namespace TheRevenge.RESTTest
         {
             try
             {
-                string postdata = "{\"IdCita\":1,\"FecAtencion\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
+                string postdata = "{\"IdCita\":1,\"FecReserva\":\"21/02/2015\",\"Diagnostico\":\"Sano\",\"Observacion\":\"\",\"IdEspecialidad\":1,\"IdPaciente\":1,\"IdEstado\":2,\"IdMedico\":3,\"IdHorario\":4}";//JSON
                 byte[] data = Encoding.UTF8.GetBytes(postdata);
                 HttpWebRequest request = (HttpWebRequest)WebRequest
                    .Create("http://localhost:1921/Citas.svc/Citas");

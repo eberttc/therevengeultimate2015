@@ -18,6 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.REST", "TheRevenge.REST\TheRevenge.REST.csproj", "{FFA0565C-AA7E-45D7-99E9-4CBBDF989DC6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3EF065D3-68C9-4F98-B4A2-AE9F38812231} = {3EF065D3-68C9-4F98-B4A2-AE9F38812231}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheRevenge.RESTTest", "TheRevenge.RESTTest\TheRevenge.RESTTest.csproj", "{6BDC69D5-FBD6-474D-8C19-3B3D9B3CB8E5}"
 EndProject

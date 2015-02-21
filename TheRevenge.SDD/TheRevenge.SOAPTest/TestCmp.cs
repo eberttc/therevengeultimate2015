@@ -42,7 +42,7 @@ namespace TheRevenge.SOAPTest
         {
             ServiceCmp.CmpesServiceClient proxy = new ServiceCmp.CmpesServiceClient();
             ServiceCmp.Cmp[] Cmpproducto = proxy.listarCmp();
-
+            
             int f;
             for (f = 1; f <= Cmpproducto.Length; f++)
             {

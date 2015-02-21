@@ -33,7 +33,7 @@ namespace TheRevenge.REST
         [WebInvoke(Method = "GET", UriTemplate = "Citas?Paciente={IdPaciente}", ResponseFormat = WebMessageFormat.Json)]
         List<CitaDescrita> ObtenerCitaDescritaPaciente(string IdPaciente);
 
-        [WebInvoke(Method = "GET", UriTemplate = "Citas?Cita={IdCita}", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "Citas/Cita/codigo={IdCita}", ResponseFormat = WebMessageFormat.Json)]
         List<CitaDescrita> ObtenerCitaDescrita(string IdCita);
     }
 }
